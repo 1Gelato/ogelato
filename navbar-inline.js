@@ -326,7 +326,7 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-dropdown">
-                    <a href="produits/machines-glaces.html" class="dropdown-trigger">Machines Glaces <span class="dropdown-arrow">▼</span></a>
+                    <a href="machines-glaces.html" class="dropdown-trigger">Machines Glaces <span class="dropdown-arrow">▼</span></a>
                     <div class="dropdown-menu glass-dropdown">
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Verticales 3 Manettes</h4>
@@ -348,12 +348,12 @@
                         </div>
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
-                            <a href="produits/machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                            <a href="machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="produits/machines-granites.html" class="dropdown-trigger">Machines Granités <span class="dropdown-arrow">▼</span></a>
+                    <a href="machines-granites.html" class="dropdown-trigger">Machines Granités <span class="dropdown-arrow">▼</span></a>
                     <div class="dropdown-menu glass-dropdown">
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Machines Granités</h4>
@@ -363,24 +363,24 @@
                         </div>
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Consommables</h4>
-                            <a href="produits/consommables-granites.html" class="dropdown-item">Sirops & Préparations</a>
+                            <a href="consommables-granites.html" class="dropdown-item">Sirops & Préparations</a>
                         </div>
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
-                            <a href="produits/machines-granites.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                            <a href="machines-granites.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
                         </div>
                     </div>
                 </li>
                 <li><a href="index.html#location">Location Machines</a></li>
                 <li><a href="index.html#vitrines">Vitrines</a></li>
-                <li><a href="produits/machines-cuisson.html">Matériel Cuisson</a></li>
+                <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
                 <li class="nav-dropdown">
-                    <a href="produits/occasions-glaciers.html" class="dropdown-trigger nav-promo">Occasions / Promotions <span class="dropdown-arrow">▼</span></a>
+                    <a href="occasions-glaciers.html" class="dropdown-trigger nav-promo">Occasions / Promotions <span class="dropdown-arrow">▼</span></a>
                     <div class="dropdown-menu glass-dropdown">
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Occasions</h4>
-                            <a href="produits/occasions-glaciers.html" class="dropdown-item">Matériels Glaciers</a>
-                            <a href="produits/machines-cuisson.html" class="dropdown-item">Matériel Cuisson</a>
+                            <a href="occasions-glaciers.html" class="dropdown-item">Matériels Glaciers</a>
+                            <a href="machines-cuisson.html" class="dropdown-item">Matériel Cuisson</a>
                         </div>
                     </div>
                 </li>
@@ -402,7 +402,17 @@
         if (isInProductsFolder) {
             const header = document.getElementById('header');
             if (header) {
+                // Remplacer les liens vers index.html
                 header.innerHTML = header.innerHTML.replace(/href="index\.html/g, 'href="../index.html');
+                
+                // Remplacer les liens vers les pages catégories (à la racine)
+                header.innerHTML = header.innerHTML.replace(/href="machines-glaces\.html"/g, 'href="../machines-glaces.html"');
+                header.innerHTML = header.innerHTML.replace(/href="machines-granites\.html"/g, 'href="../machines-granites.html"');
+                header.innerHTML = header.innerHTML.replace(/href="machines-cuisson\.html"/g, 'href="../machines-cuisson.html"');
+                header.innerHTML = header.innerHTML.replace(/href="occasions-glaciers\.html"/g, 'href="../occasions-glaciers.html"');
+                header.innerHTML = header.innerHTML.replace(/href="consommables-granites\.html"/g, 'href="../consommables-granites.html"');
+                
+                // Les liens vers produits/ restent tels quels (même dossier)
                 header.innerHTML = header.innerHTML.replace(/href="produits\//g, 'href="');
             }
         }
