@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machines à Glaces Italiennes Professionnelles | O'Gelato</title>
+    <meta name="description" content="Découvrez notre gamme de machines à glaces italiennes professionnelles Tutto Gelato. Soft, Sundae, Frozen Yogourt. Vente et location France entière.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette Gourmande Glacier */
+            --fraise: #E84A5F;
+            --fraise-light: #FF6B7A;
+            --fraise-dark: #C73E50;
+            --chocolat: #5D4037;
+            --chocolat-light: #795548;
+            --caramel: #D4A574;
+            --caramel-light: #E8C9A0;
+            --vanille: #FFF8E7;
+            --menthe: #7FCDBB;
+            --menthe-light: #A8E6CF;
+            --pistache: #93C572;
+            
+            /* Neutres */
+            --cream: #FFFBF5;
+            --cream-dark: #F5EDE3;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --light-gray: #E8E0D8;
+            --white: #FFFFFF;
+            
+            /* Dégradés */
+            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            --gradient-chocolat: linear-gradient(135deg, var(--chocolat) 0%, var(--chocolat-light) 100%);
+            
+            /* Ombres */
+            --shadow-soft: 0 10px 40px rgba(61, 44, 41, 0.08);
+            --shadow-medium: 0 20px 60px rgba(61, 44, 41, 0.15);
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(180deg, var(--vanille) 0%, var(--cream) 50%, var(--cream-dark) 100%);
+            background-attachment: fixed;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-fraise);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-fraise);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover { color: var(--fraise); }
+
+        .nav-cta {
+            background: var(--gradient-fraise);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Dropdown Menu */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.6rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 280px;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .glass-dropdown {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-lg);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-section {
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--fraise);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.4rem 0.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+        }
+
+        .dropdown-item:hover {
+            color: var(--fraise);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 1rem;
+        }
+
+        .nav-dropdown:first-child .dropdown-menu {
+            min-width: 500px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Hero Section */
+        .page-hero {
+            padding: 10rem 2rem 4rem;
+            background: var(--chocolat);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-xl);
+            color: white;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        /* Category Section */
+        .category-section {
+            padding: 4rem 2rem;
+        }
+
+        .category-section:nth-child(odd) {
+            background: white;
+        }
+
+        .category-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--fraise);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 3px;
+            background: var(--gradient-fraise);
+            border-radius: 2px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(61, 44, 41, 0.1);
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-fraise);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(232, 74, 95, 0.2);
+            border-color: var(--fraise-light);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--fraise);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-badge.occasion {
+            background: var(--menthe);
+        }
+
+        .product-header {
+            background: white;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .product-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .product-image {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, var(--chocolat) 0%, var(--chocolat-light) 100%);
+            position: relative;
+        }
+
+        .product-image-placeholder {
+            font-size: 8rem;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        }
+
+        .product-specs {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .spec-item::before {
+            content: '✓';
+            color: var(--fraise);
+            font-weight: bold;
+        }
+
+        .product-footer {
+            padding: 1rem 1.5rem;
+            background: var(--cream);
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .product-footer.has-price {
+            background: var(--menthe);
+            color: white;
+        }
+
+        .product-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--cream);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .info-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .info-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 0.75rem 1rem;
+            background: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .info-list li::before {
+            content: attr(data-num);
+            background: var(--fraise);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">🍦</div>
+                <span class="logo-text">O'Gelato</span>
+            </a>
+                                    <ul class="nav-links" id="navLinks">
+                <li class="nav-dropdown">
+                    <a href="machines-glaces.html" class="dropdown-trigger">Machines Glaces <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Verticales 3 Manettes</h4>
+                            <a href="tutto-gelato-3.html" class="dropdown-item">Tutto Gelato 3</a>
+                            <a href="tutto-gelato-3-plus.html" class="dropdown-item">Tutto Gelato 3+</a>
+                            <a href="tutto-gelato-4.html" class="dropdown-item">Tutto Gelato 4</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Comptoir 3 Manettes</h4>
+                            <a href="tutto-gelato-2.html" class="dropdown-item">Tutto Gelato 2</a>
+                            <a href="tutto-gelato-2-plus.html" class="dropdown-item">Tutto Gelato 2+</a>
+                            <a href="kion-2-comptoir.html" class="dropdown-item">KION 2 Comptoir</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Sundae / Yaourt</h4>
+                            <a href="tutto-gelato-1.html" class="dropdown-item">Tutto Gelato 1</a>
+                            <a href="tutto-gelato-1-plus.html" class="dropdown-item">Tutto Gelato 1+</a>
+                            <a href="tutto-gelato-auto.html" class="dropdown-item">Tutto Gelato Auto</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="machines-granites.html" class="dropdown-trigger">Machines Granités <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Machines Granités</h4>
+                            <a href="fc1.html" class="dropdown-item">FC1 (1 Bac)</a>
+                            <a href="fc2.html" class="dropdown-item">FC2 (2 Bacs)</a>
+                            <a href="fc3.html" class="dropdown-item">FC3 (3 Bacs)</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Consommables</h4>
+                            <a href="consommables-granites.html" class="dropdown-item">Sirops & Préparations</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="machines-granites.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../index.html#location">Location Machines</a></li>
+                <li><a href="../index.html#vitrines">Vitrines</a></li>
+                <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
+                <li class="nav-dropdown">
+                    <a href="occasions-glaciers.html" class="dropdown-trigger nav-promo">Occasions / Promotions <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Occasions</h4>
+                            <a href="occasions-glaciers.html" class="dropdown-item">Matériels Glaciers</a>
+                            <a href="machines-cuisson.html" class="dropdown-item">Matériel Cuisson</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <span class="hero-badge">Un des plus grands choix en FRANCE</span>
+        <h1>NOS MACHINES GLACES<br>ITALIENNES, SOFT, EXPRESSO</h1>
+        <p>Au meilleur rapport Qualité/Prix</p>
+    </section>
+
+    <!-- Modèles 3 Manettes Verticales -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">MODÈLES 3 MANETTES, VERTICALES À ROULETTES</h2>
+        </div>
+        <div class="products-grid">
+            <a href="tutto-gelato-3.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 3</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2400W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 750</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="tutto-gelato-3-plus.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 3+</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2600W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 900</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="tutto-gelato-4.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 4</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2600W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 1200</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modèles 3 Manettes Verticales - Occasion -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">MODÈLES 3 MANETTES, VERTICALES À ROULETTES, D'OCCASION</h2>
+        </div>
+        <div class="products-grid">
+            <a href="og3.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge occasion">Occasion</div>
+                    <div class="product-header">
+                        <h3>OG3</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2550W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 650</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="bd30.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge occasion">Occasion</div>
+                    <div class="product-header">
+                        <h3>BD30</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2400W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 250</div>
+                    </div>
+                    <div class="product-footer has-price">Occasion / 1990 € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modèles 3 Manettes Comptoir -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">MODÈLES 3 MANETTES, COMPTOIR</h2>
+        </div>
+        <div class="products-grid">
+            <a href="tutto-gelato-2.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 2</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2400W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 500</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="tutto-gelato-2-plus.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 2+</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2550W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 600</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="kion-2-comptoir.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>KION 2 COMPTOIR</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V-400V / 4500W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 500</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Machines Sundae / Yaourt -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">MACHINES SUNDAE / YAOURT GLACES / FIORDILATTE</h2>
+        </div>
+        <div class="products-grid">
+            <a href="tutto-gelato-1.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 1</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 1600W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 350</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="tutto-gelato-1-plus.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato 1+</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 1800W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 400</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="tutto-gelato-auto.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Tutto Gelato Auto</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2000W</div>
+                        <div class="spec-item">Distribution automatique</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Machines Sundae d'Occasion -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">MACHINES SUNDAE D'OCCASION</h2>
+        </div>
+        <div class="products-grid">
+            <a href="og1-g.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge occasion">Occasion</div>
+                    <div class="product-header">
+                        <h3>OG1 – G</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 1000W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 220</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="kion-1-comptoir.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge occasion">Occasion</div>
+                    <div class="product-header">
+                        <h3>KION 1 COMPTOIR</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Tension / Puissance : 220V / 2400W</div>
+                        <div class="spec-item">Nombre de glaces/heure : 250</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Branding -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">BRANDING - PERSONNALISATION</h2>
+        </div>
+        <div class="products-grid">
+            <a href="branding.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Branding</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🎨</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Machine personnalisée à votre logo</div>
+                        <div class="spec-item">Covering professionnel</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Mix Glaces -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">NOS MIX GLACES</h2>
+        </div>
+        <div class="products-grid">
+            <a href="mix-ogelato.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-header">
+                        <h3>Mix OGELATO</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍨</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Mix glace premium</div>
+                        <div class="spec-item">Goût authentique</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="mix-sublimo.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-header">
+                        <h3>Mix SUBLIMO</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍨</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Mix glace gourmand</div>
+                        <div class="spec-item">Texture onctueuse</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+            <a href="mix-ogelato-premium.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-header">
+                        <h3>Mix OGELATO PREMIUM</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍨</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Mix glace haut de gamme</div>
+                        <div class="spec-item">Qualité supérieure</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Cups et Cuillères -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">CUPS ET CUILLÈRES</h2>
+        </div>
+        <div class="products-grid">
+            <a href="contenants.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-header">
+                        <h3>CONTENANTS</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🥤</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Pots et barquettes</div>
+                        <div class="spec-item">Design personnalisable</div>
+                    </div>
+                    <div class="product-footer">Sur devis</div>
+                </article>
+            </a>
+            <a href="cuilleres.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-header">
+                        <h3>CUILLÈRES</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🥄</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Cuillères bois/plastique</div>
+                        <div class="spec-item">Qualité professionnelle</div>
+                    </div>
+                    <div class="product-footer">Sur devis</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Publicité -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">PUBLICITÉ</h2>
+        </div>
+        <div class="products-grid">
+            <a href="set-glaces-artificielles.html" class="product-link">
+                <article class="product-card">
+                    <div class="product-badge">Achat</div>
+                    <div class="product-header">
+                        <h3>Set Glaces Italiennes Artificielles</h3>
+                    </div>
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-item">Glaces factices réalistes</div>
+                        <div class="spec-item">Idéal vitrine et PLV</div>
+                    </div>
+                    <div class="product-footer">À partir de € HT</div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="info-container">
+            <h2 class="info-title">LE PLUS DE NOS MACHINES</h2>
+            <ul class="info-list">
+                <li data-num="1">Compact et puissantes. Refroidissement speed, gros débit.</li>
+                <li data-num="2">Compatible Gelato, Glaces, Frozen Yogurt.</li>
+                <li data-num="3">Congélation rapide pour une consommation réduite.</li>
+                <li data-num="4">Agitateur Cuve. Régulation Microprocesseur pour une texture crémeuse.</li>
+                <li data-num="5">Niveau sonore très bas.</li>
+                <li data-num="6">Compteur Glaces mémorisé.</li>
+                <li data-num="7">Batteurs Stainless robuste pour un brassage optimal.</li>
+                <li data-num="8">Manettes avec retour automatique.</li>
+                <li data-num="9">Étoiles spécifiques formes Glaces originales.</li>
+                <li data-num="10">Bloc Distribution transparent pour une hygiène optimale. Éclairage fluo.</li>
+                <li data-num="11">Couvercle Thermo pour une meilleure conservation du mix glaces.</li>
+                <li data-num="12">Security Work en cas de mauvaise utilisation.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🍦</div>
+                    <span class="logo-text">O'Gelato</span>
+                </a>
+                <p>
+                    Votre partenaire matériels glaciers et cuissons depuis 2010. 
+                    Ventes, locations et maintenance sur le Grand Ouest et toute la France.
+                </p>
+                <div class="footer-social">
+                    <a href="https://facebook.com/ogelato" aria-label="Suivez O'Gelato sur Facebook" title="O'Gelato sur Facebook">📘</a>
+                    <a href="https://instagram.com/ogelato" aria-label="Suivez O'Gelato sur Instagram" title="O'Gelato sur Instagram">📷</a>
+                    <a href="https://linkedin.com/company/ogelato" aria-label="Suivez O'Gelato sur LinkedIn" title="O'Gelato sur LinkedIn">💼</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Produits</h4>
+                <ul>
+                    <li><a href="machines-glaces.html">Machines Glaces</a></li>
+                    <li><a href="machines-granites.html">Machines Granités</a></li>
+                    <li><a href="index.html#vitrines">Vitrines</a></li>
+                    <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
+                    <li><a href="consommables-granites.html">Consommables</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#location">Location Machines</a></li>
+                    <li><a href="index.html#financement">Financement</a></li>
+                    <li><a href="index.html#formation">Formation</a></li>
+                    <li><a href="index.html#sav">SAV & Maintenance</a></li>
+                    <li><a href="occasions-glaciers.html">Occasions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0954934990">09 54 93 49 90</a></li>
+                    <li><a href="tel:0698722040">06 98 72 20 40</a></li>
+                    <li><a href="index.html#blog">Notre blog</a></li>
+                    <li><a href="index.html#contact">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 O'Gelato - Tous droits réservés</p>
+            <p>Mentions légales | CGV | Politique de confidentialité</p>
+        </div>
+    </footer>
+</body>
+</html>

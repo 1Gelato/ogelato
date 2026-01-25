@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consommables Granités - Sirops et Préparations | O'Gelato</title>
+    <meta name="description" content="Sirops et préparations pour machines à granités. Large choix de parfums, qualité professionnelle. Livraison France entière.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fraise: #E84A5F;
+            --fraise-light: #FF6B7A;
+            --chocolat: #5D4037;
+            --chocolat-light: #795548;
+            --caramel: #D4A574;
+            --vanille: #FFF8E7;
+            --menthe: #7FCDBB;
+            --turquoise: #00BCD4;
+            --turquoise-light: #4DD0E1;
+            --cream: #FFFBF5;
+            --cream-dark: #F5EDE3;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --light-gray: #E8E0D8;
+            --white: #FFFFFF;
+            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            --gradient-turquoise: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-light) 100%);
+            --shadow-soft: 0 10px 40px rgba(61, 44, 41, 0.08);
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(180deg, var(--vanille) 0%, var(--cream) 50%, var(--cream-dark) 100%);
+            background-attachment: fixed;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-soft);
+        }
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 50px; height: 50px;
+            background: var(--gradient-fraise);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-fraise);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links > li { position: relative; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--fraise); }
+        .nav-cta {
+            background: var(--gradient-fraise);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+        }
+        .nav-dropdown { position: relative; }
+        .dropdown-trigger { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+        .dropdown-arrow { font-size: 0.6rem; transition: transform 0.3s ease; }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            margin-top: 0.5rem;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--dark);
+            transition: all 0.2s ease;
+        }
+        .dropdown-menu a:hover {
+            background: var(--cream);
+            color: var(--fraise);
+        }
+        .page-header {
+            padding: 8rem 2rem 3rem;
+            text-align: center;
+            background: var(--gradient-turquoise);
+            color: white;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .breadcrumb a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover { color: var(--fraise); }
+        .breadcrumb span { color: var(--turquoise); }
+        .products-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--dark);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(61, 44, 41, 0.15);
+        }
+        .product-image {
+            height: 200px;
+            background: var(--gradient-turquoise);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            color: var(--turquoise);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .info-banner {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+        }
+        .info-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-turquoise);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        .info-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        .cta-section {
+            background: var(--gradient-turquoise);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-white {
+            background: white;
+            color: var(--turquoise);
+        }
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--turquoise);
+        }
+                footer {
+            background: #1a1f21;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--fraise);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--fraise);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    
+        .nav-dropdown { position: relative; }
+        .dropdown-trigger { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+        .dropdown-arrow { 
+            font-size: 0.6rem; 
+            transition: transform 0.3s ease; 
+        }
+        .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .nav-promo { color: var(--fraise) !important; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 220px;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1001;
+        }
+        .glass-dropdown {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-md);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-section { 
+            padding: 0.5rem 0;
+        }
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 0.5rem;
+        }
+        .dropdown-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--fraise);
+            margin-bottom: 0.5rem;
+            padding: 0 0.5rem;
+        }
+        .dropdown-item {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-radius: 8px;
+        }
+        .dropdown-item:hover {
+            color: var(--fraise);
+            background: rgba(232, 74, 95, 0.08);
+            padding-left: 1rem;
+        }
+        .dropdown-highlight {
+            color: var(--fraise) !important;
+            font-weight: 600;
+        }
+        /* Multi-column pour Machines Glaces */
+        .nav-dropdown:first-child .dropdown-menu {
+            min-width: 500px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        .nav-dropdown:first-child .dropdown-section:last-child {
+            grid-column: 1 / -1;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: none;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">🍦</div>
+                <span class="logo-text">O'Gelato</span>
+            </a>
+                                    <ul class="nav-links" id="navLinks">
+                <li class="nav-dropdown">
+                    <a href="machines-glaces.html" class="dropdown-trigger">Machines Glaces <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Verticales 3 Manettes</h4>
+                            <a href="tutto-gelato-3.html" class="dropdown-item">Tutto Gelato 3</a>
+                            <a href="tutto-gelato-3-plus.html" class="dropdown-item">Tutto Gelato 3+</a>
+                            <a href="tutto-gelato-4.html" class="dropdown-item">Tutto Gelato 4</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Comptoir 3 Manettes</h4>
+                            <a href="tutto-gelato-2.html" class="dropdown-item">Tutto Gelato 2</a>
+                            <a href="tutto-gelato-2-plus.html" class="dropdown-item">Tutto Gelato 2+</a>
+                            <a href="kion-2-comptoir.html" class="dropdown-item">KION 2 Comptoir</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Sundae / Yaourt</h4>
+                            <a href="tutto-gelato-1.html" class="dropdown-item">Tutto Gelato 1</a>
+                            <a href="tutto-gelato-1-plus.html" class="dropdown-item">Tutto Gelato 1+</a>
+                            <a href="tutto-gelato-auto.html" class="dropdown-item">Tutto Gelato Auto</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="machines-granites.html" class="dropdown-trigger">Machines Granités <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Machines Granités</h4>
+                            <a href="fc1.html" class="dropdown-item">FC1 (1 Bac)</a>
+                            <a href="fc2.html" class="dropdown-item">FC2 (2 Bacs)</a>
+                            <a href="fc3.html" class="dropdown-item">FC3 (3 Bacs)</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Consommables</h4>
+                            <a href="consommables-granites.html" class="dropdown-item">Sirops & Préparations</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="machines-granites.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../index.html#location">Location Machines</a></li>
+                <li><a href="../index.html#vitrines">Vitrines</a></li>
+                <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
+                <li class="nav-dropdown">
+                    <a href="occasions-glaciers.html" class="dropdown-trigger nav-promo">Occasions / Promotions <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Occasions</h4>
+                            <a href="occasions-glaciers.html" class="dropdown-item">Matériels Glaciers</a>
+                            <a href="machines-cuisson.html" class="dropdown-item">Matériel Cuisson</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>🍹 Consommables Granités</h1>
+        <p>Sirops et préparations professionnels pour vos machines à granités</p>
+    </section>
+
+    <div class="breadcrumb">
+        <a href="../index.html">Accueil</a> / 
+        <a href="machines-granites.html">Machines Granités</a> / 
+        <span>Consommables</span>
+    </div>
+
+    <section class="products-section">
+        <h2 class="section-title">Nos Sirops & Préparations</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🍋</div>
+                <div class="product-info">
+                    <h3>Sirop Citron</h3>
+                    <p>Saveur acidulée et rafraîchissante. Idéal pour l'été.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #E84A5F, #FF6B7A);">🍓</div>
+                <div class="product-info">
+                    <h3>Sirop Fraise</h3>
+                    <p>Le classique incontournable, apprécié de tous.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #2196F3, #64B5F6);">🫐</div>
+                <div class="product-info">
+                    <h3>Sirop Framboise Bleue</h3>
+                    <p>Couleur originale, goût fruité intense.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #4CAF50, #81C784);">🍏</div>
+                <div class="product-info">
+                    <h3>Sirop Pomme Verte</h3>
+                    <p>Saveur fraîche et légèrement acidulée.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">🍊</div>
+                <div class="product-info">
+                    <h3>Sirop Orange</h3>
+                    <p>Goût d'agrume vitaminé et ensoleillé.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #9C27B0, #BA68C8);">🍇</div>
+                <div class="product-info">
+                    <h3>Sirop Raisin</h3>
+                    <p>Saveur douce et gourmande.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #7FCDBB, #4DB6AC);">🌴</div>
+                <div class="product-info">
+                    <h3>Sirop Menthe</h3>
+                    <p>Ultra rafraîchissant, effet glacé garanti.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #F44336, #E57373);">🍒</div>
+                <div class="product-info">
+                    <h3>Sirop Cerise</h3>
+                    <p>Goût fruité et légèrement sucré.</p>
+                    <span class="product-price">Nous consulter</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-banner">
+        <h2>Pourquoi choisir nos consommables ?</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-icon">✅</div>
+                <div>
+                    <h4>Qualité professionnelle</h4>
+                    <p>Sirops concentrés spécialement formulés pour machines à granités</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">🎨</div>
+                <div>
+                    <h4>Couleurs vives</h4>
+                    <p>Rendu visuel attractif pour attirer vos clients</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">💰</div>
+                <div>
+                    <h4>Rentabilité optimale</h4>
+                    <p>Dosage précis pour un coût maîtrisé par verre</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">🚚</div>
+                <div>
+                    <h4>Livraison France</h4>
+                    <p>Expédition rapide partout en France métropolitaine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Besoin de consommables ?</h2>
+        <p>Contactez-nous pour connaître nos tarifs et disponibilités</p>
+        <div class="cta-buttons">
+            <a href="../index.html#contact" class="btn btn-white">Demander un devis</a>
+            <a href="tel:0954934990" class="btn btn-outline">📞 09 54 93 49 90</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🍦</div>
+                    <span class="logo-text">O'Gelato</span>
+                </a>
+                <p>
+                    Votre partenaire matériels glaciers et cuissons depuis 2010. 
+                    Ventes, locations et maintenance sur le Grand Ouest et toute la France.
+                </p>
+                <div class="footer-social">
+                    <a href="https://facebook.com/ogelato" aria-label="Suivez O'Gelato sur Facebook" title="O'Gelato sur Facebook">📘</a>
+                    <a href="https://instagram.com/ogelato" aria-label="Suivez O'Gelato sur Instagram" title="O'Gelato sur Instagram">📷</a>
+                    <a href="https://linkedin.com/company/ogelato" aria-label="Suivez O'Gelato sur LinkedIn" title="O'Gelato sur LinkedIn">💼</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Produits</h4>
+                <ul>
+                    <li><a href="machines-glaces.html">Machines Glaces</a></li>
+                    <li><a href="machines-granites.html">Machines Granités</a></li>
+                    <li><a href="index.html#vitrines">Vitrines</a></li>
+                    <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
+                    <li><a href="consommables-granites.html">Consommables</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#location">Location Machines</a></li>
+                    <li><a href="index.html#financement">Financement</a></li>
+                    <li><a href="index.html#formation">Formation</a></li>
+                    <li><a href="index.html#sav">SAV & Maintenance</a></li>
+                    <li><a href="occasions-glaciers.html">Occasions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0954934990">09 54 93 49 90</a></li>
+                    <li><a href="tel:0698722040">06 98 72 20 40</a></li>
+                    <li><a href="index.html#blog">Notre blog</a></li>
+                    <li><a href="index.html#contact">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 O'Gelato - Tous droits réservés</p>
+            <p>Mentions légales | CGV | Politique de confidentialité</p>
+        </div>
+    </footer>
+</body>
+</html>

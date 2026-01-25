@@ -1,0 +1,11 @@
+# Robots.txt pour O'Gelato
+# https://www.ogelato.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.ogelato.fr/sitemap.xml
+
+# Crawl-delay recommandé
+Crawl-delay: 10
