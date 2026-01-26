@@ -1,4 +1,4 @@
-// navbar-inline.js - Version robuste
+// navbar-inline.js - Version corrigée pour mobile
 (function() {
     'use strict';
     
@@ -31,6 +31,7 @@
             z-index: 1000;
             padding: 1rem 2rem;
             transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.98);
         }
         
         header.scrolled {
@@ -88,6 +89,8 @@
             gap: 2rem;
             list-style: none;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
         
         .nav-links > li {
@@ -155,6 +158,7 @@
             border: none;
             cursor: pointer;
             padding: 5px;
+            z-index: 1001;
         }
         
         .mobile-toggle span {
@@ -166,7 +170,7 @@
         }
         
         .mobile-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+            transform: rotate(45deg) translate(6px, 6px);
         }
         
         .mobile-toggle.active span:nth-child(2) {
@@ -174,9 +178,10 @@
         }
         
         .mobile-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+            transform: rotate(-45deg) translate(6px, -6px);
         }
         
+        /* Dropdown Desktop */
         .nav-dropdown {
             position: relative;
         }
@@ -185,15 +190,13 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            cursor: pointer;
         }
         
         .dropdown-arrow {
             font-size: 0.6rem;
             transition: transform 0.3s ease;
-        }
-        
-        .nav-dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
+            display: inline-block;
         }
         
         .dropdown-menu {
@@ -205,26 +208,32 @@
             padding: 1.5rem;
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1000;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-        }
-        
-        .dropdown-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-        
-        .glass-dropdown {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: var(--radius-lg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Desktop hover */
+        @media (min-width: 769px) {
+            .nav-dropdown:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateX(-50%) translateY(0);
+            }
+            
+            .nav-dropdown:hover .dropdown-arrow {
+                transform: rotate(180deg);
+            }
         }
         
         .dropdown-section {
@@ -270,6 +279,7 @@
             font-weight: 600 !important;
         }
         
+        /* Premier dropdown plus large (machines glaces) */
         .nav-dropdown:first-child .dropdown-menu {
             min-width: 500px;
             grid-template-columns: repeat(3, 1fr);
@@ -279,60 +289,74 @@
             color: var(--fraise) !important;
         }
         
+        /* ========== MOBILE STYLES ========== */
         @media (max-width: 768px) {
             header {
-                padding: 0.75rem 1.5rem;
+                padding: 0.75rem 1rem;
             }
             
-            /* Désactiver le hover sur mobile */
-            .nav-dropdown:hover .dropdown-menu {
-                opacity: 0 !important;
-                visibility: hidden !important;
-                transform: translateX(-50%) translateY(10px) !important;
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-toggle {
+                display: flex;
             }
             
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 82px;
+                top: 70px;
                 left: 0;
                 right: 0;
                 bottom: 0;
                 background: white;
                 flex-direction: column;
-                padding: 1.5rem;
+                padding: 0;
                 gap: 0;
-                box-shadow: 0 15px 35px rgba(61, 44, 41, 0.15);
                 overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
                 align-items: stretch;
                 z-index: 999;
-            }
-            
-            .nav-links > li {
-                width: 100%;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
-            }
-            
-            .nav-links > li:last-child {
-                border-bottom: none;
-                margin-top: 1rem;
-            }
-            
-            .nav-links a {
-                padding: 1rem 0;
-                font-size: 1rem;
-                display: block;
             }
             
             .nav-links.active {
                 display: flex;
             }
             
-            .mobile-toggle {
-                display: flex;
-                z-index: 1001;
+            .nav-links > li {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             }
             
+            .nav-links > li:last-child {
+                border-bottom: none;
+                padding: 1rem;
+            }
+            
+            .nav-links > li > a {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .nav-links > li > a::after {
+                display: none;
+            }
+            
+            /* Dropdown Mobile */
             .nav-dropdown {
                 width: 100%;
             }
@@ -340,41 +364,49 @@
             .dropdown-trigger {
                 width: 100%;
                 justify-content: space-between;
+                padding: 1rem 1.5rem;
             }
             
             .dropdown-arrow {
-                transition: transform 0.3s ease;
+                font-size: 0.8rem;
+                margin-left: auto;
             }
             
-            .nav-dropdown.active .dropdown-arrow {
+            .nav-dropdown.mobile-open .dropdown-arrow {
                 transform: rotate(180deg);
             }
             
             .dropdown-menu {
-                position: static !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                position: static;
+                transform: none;
+                width: 100%;
                 min-width: 100% !important;
-                opacity: 1 !important;
-                visibility: visible !important;
+                max-width: 100%;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
                 display: none;
-                padding: 1rem;
-                margin: 0.5rem 0 0 0;
+                padding: 0 1rem 1rem 1rem;
+                margin: 0;
                 grid-template-columns: 1fr !important;
-                gap: 0.75rem;
-                background: rgba(232, 74, 95, 0.03);
-                border-radius: 8px;
-                box-sizing: border-box;
+                gap: 0.5rem;
+                background: #f8f8f8;
+                border-radius: 0;
+                box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+                border: none;
             }
             
-            .dropdown-menu.active {
-                display: grid !important;
+            .nav-dropdown.mobile-open .dropdown-menu {
+                display: block;
             }
             
             .dropdown-section {
-                padding: 0.5rem 0;
-                width: 100%;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .dropdown-section:last-child {
+                border-bottom: none;
             }
             
             .dropdown-title {
@@ -386,24 +418,46 @@
             }
             
             .dropdown-item {
-                padding: 0.75rem;
-                margin: 0;
+                padding: 0.6rem 0.75rem;
+                margin: 0.25rem 0;
                 font-size: 0.95rem;
                 display: block;
-                width: 100%;
-                box-sizing: border-box;
-                white-space: normal;
-                word-wrap: break-word;
+                background: white;
+                border-radius: 8px;
             }
             
-            .dropdown-item:hover {
+            .dropdown-item:hover,
+            .dropdown-item:active {
                 padding-left: 1rem;
+                background: rgba(255, 107, 107, 0.1);
             }
             
             .nav-cta {
                 width: 100%;
                 text-align: center;
                 padding: 1rem !important;
+                margin: 0;
+            }
+        }
+        
+        /* Fix pour très petits écrans */
+        @media (max-width: 380px) {
+            header {
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .nav-links {
+                top: 60px;
             }
         }
         </style>
@@ -417,9 +471,9 @@
                 <span class="logo-text">O'Gelato</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li class="nav-dropdown">
+                <li class="nav-dropdown" data-dropdown="machines-glaces">
                     <a href="machines-glaces.html" class="dropdown-trigger">Machines Glaces <span class="dropdown-arrow">▼</span></a>
-                    <div class="dropdown-menu glass-dropdown">
+                    <div class="dropdown-menu">
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Verticales 3 Manettes</h4>
                             <a href="produits/tutto-gelato-3.html" class="dropdown-item">Tutto Gelato 3</a>
@@ -444,9 +498,9 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-dropdown">
+                <li class="nav-dropdown" data-dropdown="machines-granites">
                     <a href="machines-granites.html" class="dropdown-trigger">Machines Granités <span class="dropdown-arrow">▼</span></a>
-                    <div class="dropdown-menu glass-dropdown">
+                    <div class="dropdown-menu">
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Machines Granités</h4>
                             <a href="produits/fc1.html" class="dropdown-item">FC1 (1 Bac)</a>
@@ -466,9 +520,9 @@
                 <li><a href="index.html#location">Location Machines</a></li>
                 <li><a href="index.html#vitrines">Vitrines</a></li>
                 <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
-                <li class="nav-dropdown">
+                <li class="nav-dropdown" data-dropdown="occasions">
                     <a href="occasions-glaciers.html" class="dropdown-trigger nav-promo">Occasions / Promotions <span class="dropdown-arrow">▼</span></a>
-                    <div class="dropdown-menu glass-dropdown">
+                    <div class="dropdown-menu">
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Occasions</h4>
                             <a href="occasions-glaciers.html" class="dropdown-item">Matériels Glaciers</a>
@@ -494,72 +548,61 @@
         if (isInProductsFolder) {
             const header = document.getElementById('header');
             if (header) {
-                header.innerHTML = header.innerHTML.replace(/href="index\.html/g, 'href="../index.html');
-                header.innerHTML = header.innerHTML.replace(/href="machines-glaces\.html"/g, 'href="../machines-glaces.html"');
-                header.innerHTML = header.innerHTML.replace(/href="machines-granites\.html"/g, 'href="../machines-granites.html"');
-                header.innerHTML = header.innerHTML.replace(/href="machines-cuisson\.html"/g, 'href="../machines-cuisson.html"');
-                header.innerHTML = header.innerHTML.replace(/href="occasions-glaciers\.html"/g, 'href="../occasions-glaciers.html"');
-                header.innerHTML = header.innerHTML.replace(/href="consommables-granites\.html"/g, 'href="../consommables-granites.html"');
-                header.innerHTML = header.innerHTML.replace(/href="produits\//g, 'href="');
+                const links = header.querySelectorAll('a[href]');
+                links.forEach(link => {
+                    let href = link.getAttribute('href');
+                    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('../')) {
+                        if (href.startsWith('index.html')) {
+                            link.setAttribute('href', '../' + href);
+                        } else if (href.startsWith('machines-') || href.startsWith('occasions-') || href.startsWith('consommables-')) {
+                            link.setAttribute('href', '../' + href);
+                        } else if (href.startsWith('produits/')) {
+                            link.setAttribute('href', href.replace('produits/', ''));
+                        }
+                    }
+                });
             }
         }
     }
 
-    function initDropdowns() {
-        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    function initMobileDropdowns() {
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
         
-        dropdownTriggers.forEach(trigger => {
-            const parentLi = trigger.closest('.nav-dropdown');
-            if (!parentLi) return;
+        dropdowns.forEach(dropdown => {
+            const trigger = dropdown.querySelector('.dropdown-trigger');
             
-            const dropdownMenu = parentLi.querySelector('.dropdown-menu');
-            if (!dropdownMenu) return;
-            
-            // Desktop uniquement: hover
-            const handleMouseEnter = () => {
-                if (window.innerWidth > 768) {
-                    dropdownMenu.style.display = 'grid';
-                    setTimeout(() => dropdownMenu.classList.add('active'), 10);
-                }
-            };
-            
-            const handleMouseLeave = () => {
-                if (window.innerWidth > 768) {
-                    dropdownMenu.classList.remove('active');
-                    setTimeout(() => dropdownMenu.style.display = 'none', 300);
-                }
-            };
-            
-            parentLi.addEventListener('mouseenter', handleMouseEnter);
-            parentLi.addEventListener('mouseleave', handleMouseLeave);
-            
-            // Mobile: click uniquement
-            trigger.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Toggle le parent
-                    const wasActive = parentLi.classList.contains('active');
-                    
-                    // Fermer tous les autres dropdowns
-                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                        const menu = dropdown.querySelector('.dropdown-menu');
-                        if (menu) {
-                            menu.classList.remove('active');
-                            menu.style.display = 'none';
+            if (trigger) {
+                // Supprimer les anciens event listeners en clonant
+                const newTrigger = trigger.cloneNode(true);
+                trigger.parentNode.replaceChild(newTrigger, trigger);
+                
+                newTrigger.addEventListener('click', function(e) {
+                    if (isMobile()) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const wasOpen = dropdown.classList.contains('mobile-open');
+                        
+                        // Fermer tous les autres dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('mobile-open');
+                            }
+                        });
+                        
+                        // Toggle celui-ci
+                        if (wasOpen) {
+                            dropdown.classList.remove('mobile-open');
+                        } else {
+                            dropdown.classList.add('mobile-open');
                         }
-                    });
-                    
-                    // Toggle le dropdown actuel
-                    if (!wasActive) {
-                        parentLi.classList.add('active');
-                        dropdownMenu.style.display = 'grid';
-                        setTimeout(() => dropdownMenu.classList.add('active'), 10);
                     }
-                }
-            });
+                });
+            }
         });
     }
 
@@ -568,22 +611,26 @@
         const navLinks = document.getElementById('navLinks');
         
         if (mobileToggle && navLinks) {
-            mobileToggle.addEventListener('click', () => {
-                mobileToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            // Supprimer les anciens event listeners
+            const newToggle = mobileToggle.cloneNode(true);
+            mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+            
+            newToggle.addEventListener('click', function() {
+                const isActive = navLinks.classList.contains('active');
                 
-                // Fermer tous les dropdowns quand on ouvre/ferme le menu
-                if (navLinks.classList.contains('active')) {
-                    // Menu qui s'ouvre : fermer tous les dropdowns
-                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                        const menu = dropdown.querySelector('.dropdown-menu');
-                        if (menu) {
-                            menu.classList.remove('active');
-                            menu.style.display = 'none';
-                        }
+                if (isActive) {
+                    navLinks.classList.remove('active');
+                    newToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Fermer tous les dropdowns
+                    document.querySelectorAll('.nav-dropdown').forEach(d => {
+                        d.classList.remove('mobile-open');
                     });
+                } else {
+                    navLinks.classList.add('active');
+                    newToggle.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 }
             });
         }
@@ -597,13 +644,37 @@
             return;
         }
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
+        function checkScroll() {
+            if (window.pageYOffset > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-        });
+        }
+        
+        window.addEventListener('scroll', checkScroll, { passive: true });
+        checkScroll(); // Vérifier au chargement
+    }
+
+    // Fermer le menu mobile lors du redimensionnement
+    function handleResize() {
+        if (!isMobile()) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.getElementById('mobileToggle');
+            
+            if (navLinks) {
+                navLinks.classList.remove('active');
+            }
+            if (mobileToggle) {
+                mobileToggle.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+            
+            // Fermer tous les dropdowns mobile
+            document.querySelectorAll('.nav-dropdown').forEach(d => {
+                d.classList.remove('mobile-open');
+            });
+        }
     }
 
     function init() {
@@ -619,14 +690,18 @@
             document.body.insertAdjacentHTML('afterbegin', navbarHTML);
         }
         
-        // Attendre que le DOM soit prêt
-        requestAnimationFrame(() => {
+        // Initialiser après un court délai pour s'assurer que le DOM est prêt
+        setTimeout(() => {
             adjustLinks();
-            initDropdowns();
+            initMobileDropdowns();
             initMobileMenu();
             initScrollEffect();
+            
+            // Écouter les changements de taille d'écran
+            window.addEventListener('resize', handleResize);
+            
             console.log('Navbar initialized successfully');
-        });
+        }, 50);
     }
 
     // Initialiser quand le DOM est prêt
