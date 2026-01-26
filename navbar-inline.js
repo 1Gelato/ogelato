@@ -287,17 +287,18 @@
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 70px;
+                top: 82px;
                 left: 0;
                 right: 0;
                 bottom: 0;
                 background: white;
                 flex-direction: column;
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
                 gap: 0;
                 box-shadow: 0 15px 35px rgba(61, 44, 41, 0.15);
                 overflow-y: auto;
                 align-items: stretch;
+                z-index: 999;
             }
             
             .nav-links > li {
@@ -322,6 +323,7 @@
             
             .mobile-toggle {
                 display: flex;
+                z-index: 1001;
             }
             
             .nav-dropdown {
