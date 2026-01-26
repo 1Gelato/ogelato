@@ -477,7 +477,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="location.html" class="nav-link nav-promo">📍 Location</a></li>
+                <li><a href="location.html" class="nav-link nav-promo">Location</a></li>
                 <li><a href="occasions.html" class="nav-link">Occasions</a></li>
                 <li><a href="actualites.html" class="nav-link">Actualités</a></li>
                 <li><a href="a-propos.html" class="nav-link">À Propos</a></li>
