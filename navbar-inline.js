@@ -284,6 +284,13 @@
                 padding: 0.75rem 1.5rem;
             }
             
+            /* Désactiver le hover sur mobile */
+            .nav-dropdown:hover .dropdown-menu {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transform: translateX(-50%) translateY(10px) !important;
+            }
+            
             .nav-links {
                 display: none;
                 position: fixed;
@@ -344,11 +351,11 @@
             }
             
             .dropdown-menu {
-                position: static;
-                transform: none;
+                position: static !important;
+                transform: none !important;
                 min-width: 100% !important;
-                opacity: 1;
-                visibility: visible;
+                opacity: 1 !important;
+                visibility: visible !important;
                 display: none;
                 padding: 0.5rem 0 1rem 1rem;
                 margin-top: 0;
@@ -359,7 +366,7 @@
             }
             
             .dropdown-menu.active {
-                display: grid;
+                display: grid !important;
             }
             
             .dropdown-section {
@@ -497,20 +504,25 @@
             const dropdownMenu = parentLi.querySelector('.dropdown-menu');
             if (!dropdownMenu) return;
             
-            // Desktop: hover
-            if (window.innerWidth > 768) {
-                parentLi.addEventListener('mouseenter', () => {
+            // Desktop uniquement: hover
+            const handleMouseEnter = () => {
+                if (window.innerWidth > 768) {
                     dropdownMenu.style.display = 'grid';
                     setTimeout(() => dropdownMenu.classList.add('active'), 10);
-                });
-                
-                parentLi.addEventListener('mouseleave', () => {
+                }
+            };
+            
+            const handleMouseLeave = () => {
+                if (window.innerWidth > 768) {
                     dropdownMenu.classList.remove('active');
                     setTimeout(() => dropdownMenu.style.display = 'none', 300);
-                });
-            }
+                }
+            };
             
-            // Mobile: click
+            parentLi.addEventListener('mouseenter', handleMouseEnter);
+            parentLi.addEventListener('mouseleave', handleMouseLeave);
+            
+            // Mobile: click uniquement
             trigger.addEventListener('click', (e) => {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
