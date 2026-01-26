@@ -1,11 +1,19 @@
-// navbar-inline.js - Navbar O'Gelato avec CSS intégré
+// navbar-inline.js - Version robuste
 (function() {
     'use strict';
     
-    // Injecter le CSS dans le head
+    // Vérifier si déjà chargé pour éviter les doublons
+    if (window.ogelatoNavbarLoaded) {
+        console.log('Navbar already loaded, skipping...');
+        return;
+    }
+    window.ogelatoNavbarLoaded = true;
+    
+    console.log('Loading O\'Gelato Navbar...');
+    
+    // Injecter le CSS
     const navbarCSS = `
         <style id="navbar-inline-css">
-        /* Navbar CSS intégré */
         :root {
             --fraise: #E84A5F;
             --fraise-light: #FF6B7A;
@@ -316,7 +324,6 @@
         </style>
     `;
     
-    // HTML de la navbar (identique à avant)
     const navbarHTML = `
     <header id="header">
         <nav>
@@ -402,17 +409,12 @@
         if (isInProductsFolder) {
             const header = document.getElementById('header');
             if (header) {
-                // Remplacer les liens vers index.html
                 header.innerHTML = header.innerHTML.replace(/href="index\.html/g, 'href="../index.html');
-                
-                // Remplacer les liens vers les pages catégories (à la racine)
                 header.innerHTML = header.innerHTML.replace(/href="machines-glaces\.html"/g, 'href="../machines-glaces.html"');
                 header.innerHTML = header.innerHTML.replace(/href="machines-granites\.html"/g, 'href="../machines-granites.html"');
                 header.innerHTML = header.innerHTML.replace(/href="machines-cuisson\.html"/g, 'href="../machines-cuisson.html"');
                 header.innerHTML = header.innerHTML.replace(/href="occasions-glaciers\.html"/g, 'href="../occasions-glaciers.html"');
                 header.innerHTML = header.innerHTML.replace(/href="consommables-granites\.html"/g, 'href="../consommables-granites.html"');
-                
-                // Les liens vers produits/ restent tels quels (même dossier)
                 header.innerHTML = header.innerHTML.replace(/href="produits\//g, 'href="');
             }
         }
@@ -423,7 +425,10 @@
         
         dropdownTriggers.forEach(trigger => {
             const parentLi = trigger.closest('.nav-dropdown');
+            if (!parentLi) return;
+            
             const dropdownMenu = parentLi.querySelector('.dropdown-menu');
+            if (!dropdownMenu) return;
             
             parentLi.addEventListener('mouseenter', () => {
                 dropdownMenu.style.display = 'grid';
@@ -471,7 +476,7 @@
         const header = document.getElementById('header');
         
         if (!header) {
-            console.error('Header not found');
+            console.warn('Header not found for scroll effect');
             return;
         }
         
@@ -484,19 +489,33 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    function init() {
+        console.log('Initializing navbar...');
+        
         // Injecter le CSS
-        document.head.insertAdjacentHTML('beforeend', navbarCSS);
+        if (!document.getElementById('navbar-inline-css')) {
+            document.head.insertAdjacentHTML('beforeend', navbarCSS);
+        }
         
         // Insérer la navbar
-        document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+        if (!document.getElementById('header')) {
+            document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+        }
         
-        // Attendre que le DOM soit bien mis à jour avant d'initialiser
-        setTimeout(() => {
+        // Attendre que le DOM soit prêt
+        requestAnimationFrame(() => {
             adjustLinks();
             initDropdowns();
             initMobileMenu();
             initScrollEffect();
-        }, 10);
-    });
+            console.log('Navbar initialized successfully');
+        });
+    }
+
+    // Initialiser quand le DOM est prêt
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
