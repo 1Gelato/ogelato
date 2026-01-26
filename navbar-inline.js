@@ -345,7 +345,7 @@
                     </li>
                     <li><a href="${pathPrefix}index.html#location">Location Machines</a></li>
                     <li><a href="${pathPrefix}produits/vitrines.html">Vitrines</a></li>
-                    <li><a href="${pathPrefix}materiel-cuisson.html">Matériel Cuisson</a></li>
+                    <li><a href="${pathPrefix}machines-cuisson.html">Matériel Cuisson</a></li>
                     <li class="nav-dropdown">
                         <a href="#" class="dropdown-trigger">
                             Occasions / Promotions
