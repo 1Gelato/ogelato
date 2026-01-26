@@ -470,6 +470,11 @@
     function initScrollEffect() {
         const header = document.getElementById('header');
         
+        if (!header) {
+            console.error('Header not found');
+            return;
+        }
+        
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
                 header.classList.add('scrolled');
@@ -486,9 +491,12 @@
         // Insérer la navbar
         document.body.insertAdjacentHTML('afterbegin', navbarHTML);
         
-        adjustLinks();
-        initDropdowns();
-        initMobileMenu();
-        initScrollEffect();
+        // Attendre que le DOM soit bien mis à jour avant d'initialiser
+        setTimeout(() => {
+            adjustLinks();
+            initDropdowns();
+            initMobileMenu();
+            initScrollEffect();
+        }, 10);
     });
 })();
