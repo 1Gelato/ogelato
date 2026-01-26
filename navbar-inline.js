@@ -353,16 +353,19 @@
             .dropdown-menu {
                 position: static !important;
                 transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
                 min-width: 100% !important;
                 opacity: 1 !important;
                 visibility: visible !important;
                 display: none;
-                padding: 0.5rem 0 1rem 1rem;
-                margin-top: 0;
+                padding: 1rem;
+                margin: 0.5rem 0 0 0;
                 grid-template-columns: 1fr !important;
-                gap: 0.5rem;
+                gap: 0.75rem;
                 background: rgba(232, 74, 95, 0.03);
                 border-radius: 8px;
+                box-sizing: border-box;
             }
             
             .dropdown-menu.active {
@@ -371,18 +374,26 @@
             
             .dropdown-section {
                 padding: 0.5rem 0;
+                width: 100%;
             }
             
             .dropdown-title {
                 font-size: 0.75rem;
                 margin-bottom: 0.5rem;
                 padding-bottom: 0.25rem;
+                color: var(--fraise);
+                font-weight: 700;
             }
             
             .dropdown-item {
-                padding: 0.5rem;
+                padding: 0.75rem;
                 margin: 0;
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                white-space: normal;
+                word-wrap: break-word;
             }
             
             .dropdown-item:hover {
@@ -561,6 +572,19 @@
                 mobileToggle.classList.toggle('active');
                 navLinks.classList.toggle('active');
                 document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                
+                // Fermer tous les dropdowns quand on ouvre/ferme le menu
+                if (navLinks.classList.contains('active')) {
+                    // Menu qui s'ouvre : fermer tous les dropdowns
+                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                        const menu = dropdown.querySelector('.dropdown-menu');
+                        if (menu) {
+                            menu.classList.remove('active');
+                            menu.style.display = 'none';
+                        }
+                    });
+                }
             });
         }
     }
