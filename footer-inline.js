@@ -162,6 +162,7 @@
                 <ul>
                     <li><a href="tel:0954934990">09 54 93 49 90</a></li>
                     <li><a href="tel:0698722040">06 98 72 20 40</a></li>
+                    <li><a href="qui-sommes-nous.html">Qui Sommes-Nous</a></li>
                     <li><a href="#blog">Notre blog</a></li>
                     <li><a href="#contact">Nous contacter</a></li>
                 </ul>
@@ -217,6 +218,7 @@
                 <ul>
                     <li><a href="tel:0954934990">09 54 93 49 90</a></li>
                     <li><a href="tel:0698722040">06 98 72 20 40</a></li>
+                    <li><a href="qui-sommes-nous.html">Qui Sommes-Nous</a></li>
                     <li><a href="index.html#blog">Notre blog</a></li>
                     <li><a href="index.html#contact">Nous contacter</a></li>
                 </ul>
