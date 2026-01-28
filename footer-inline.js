@@ -150,7 +150,7 @@
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#location">Location Machines</a></li>
+                    <li><a href="location-machines.html">Location Machines</a></li>
                     <li><a href="#financement">Financement</a></li>
                     <li><a href="#formation">Formation</a></li>
                     <li><a href="#sav">SAV & Maintenance</a></li>
@@ -208,7 +208,7 @@
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="index.html#location">Location Machines</a></li>
+                    <li><a href="location-machines.html">Location Machines</a></li>
                     <li><a href="index.html#financement">Financement</a></li>
                     <li><a href="index.html#formation">Formation</a></li>
                     <li><a href="index.html#sav">SAV & Maintenance</a></li>
