@@ -442,6 +442,12 @@
                             <a href="produits/tutto-gelato-auto.html" class="dropdown-item">Tutto Gelato Auto</a>
                         </div>
                         <div class="dropdown-section">
+                            <h4 class="dropdown-title">Mix Glaces</h4>
+                            <a href="produits/mix-ogelato.html" class="dropdown-item">Mix OGELATO</a>
+                            <a href="produits/mix-sublimo.html" class="dropdown-item">Mix SUBLIMO</a>
+                            <a href="produits/mix-ogelato-premium.html" class="dropdown-item">Mix OGELATO PREMIUM</a>
+                        </div>
+                        <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
                             <a href="machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
                         </div>
