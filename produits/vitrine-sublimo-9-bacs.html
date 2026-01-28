@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitrine SUBLIMO 9 Bacs | O'Gelato - 9 bacs de 5L</title>
+    <meta name="description" content="Vitrine à glaces SUBLIMO 9 Bacs - 9 bacs de 5L. Vitrine à glaces 9 bacs - Format optimal - Meilleur rapport qualité/prix. Meilleur tarif du marché.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fraise: #E84A5F;
+            --fraise-light: #FF6B7A;
+            --chocolat: #5D4037;
+            --chocolat-light: #795548;
+            --vitrine: #4A8895;
+            --vitrine-light: #5FA4B3;
+            --vanille: #FFF8E7;
+            --cream: #FFFBF5;
+            --cream-dark: #F5EDE3;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --light-gray: #E8E0D8;
+            --white: #FFFFFF;
+            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            --gradient-vitrine: linear-gradient(135deg, var(--vitrine) 0%, var(--vitrine-light) 100%);
+            --shadow-soft: 0 10px 40px rgba(61, 44, 41, 0.08);
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(180deg, var(--vanille) 0%, var(--cream) 50%, var(--cream-dark) 100%);
+            background-attachment: fixed;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .breadcrumb {
+            padding: 7rem 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .breadcrumb a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover { color: var(--fraise); }
+        .breadcrumb span { color: var(--vitrine); }
+        .product-page {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .product-gallery { position: sticky; top: 100px; }
+        .product-main-image {
+            background: var(--gradient-vitrine);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            position: relative;
+        }
+        .product-main-image .badge {
+            position: absolute;
+            top: 1.5rem; left: 1.5rem;
+            background: var(--fraise);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+        }
+        .product-main-image .badge-capacity {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: white;
+            color: var(--vitrine);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .product-main-image .image-placeholder {
+            font-size: 12rem;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+        .product-thumbnails {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .thumbnail {
+            width: 80px; height: 80px;
+            background: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .thumbnail:hover, .thumbnail.active { border-color: var(--vitrine); }
+        .product-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        .product-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .product-price-box {
+            background: var(--gradient-vitrine);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+        .product-price-box .price-label { font-size: 0.9rem; opacity: 0.9; }
+        .product-price-box .price { font-size: 2rem; font-weight: 700; }
+        .product-specs-table {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+        }
+        .specs-title {
+            background: var(--vitrine);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+        }
+        .spec-row {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: var(--cream);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .spec-label::before {
+            content: '✓';
+            color: var(--vitrine);
+            font-weight: bold;
+        }
+        .spec-value {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+        }
+        .product-features {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+        }
+        .product-features h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+        }
+        .feature-icon {
+            width: 36px; height: 36px;
+            background: var(--vitrine);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+        .cta-buttons { display: flex; gap: 1rem; }
+        .btn {
+            flex: 1;
+            padding: 1.25rem 2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--gradient-vitrine);
+            color: white;
+            box-shadow: 0 8px 25px rgba(74, 136, 149, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(74, 136, 149, 0.45);
+        }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--dark);
+        }
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+        .related-products {
+            padding: 4rem 2rem;
+            background: white;
+            margin-top: 4rem;
+        }
+        .related-products h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .related-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .related-card {
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(61, 44, 41, 0.15);
+        }
+        .related-card .image { font-size: 4rem; margin-bottom: 1rem; }
+        .related-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .related-card .price { color: var(--vitrine); font-weight: 600; }
+        @media (max-width: 992px) {
+            .product-container { grid-template-columns: 1fr; }
+            .product-gallery { position: static; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .product-info h1 { font-size: 2rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="breadcrumb">
+        <a href="../index.html">Accueil</a> / 
+        <a href="../vitrines-glaces.html">Vitrines</a> / 
+        <span>SUBLIMO 9 Bacs</span>
+    </div>
+
+    <section class="product-page">
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="product-main-image">
+                    <span class="badge">Populaire</span>
+                    <span class="badge-capacity">9 bacs</span>
+                    <span class="image-placeholder">🍨</span>
+                </div>
+                <div class="product-thumbnails">
+                    <div class="thumbnail active">🍨</div>
+                    <div class="thumbnail">📐</div>
+                    <div class="thumbnail">⚙️</div>
+                    <div class="thumbnail">🎥</div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>SUBLIMO 9 Bacs</h1>
+                <p class="product-subtitle">Vitrine à glaces 9 bacs - Format optimal - Meilleur rapport qualité/prix</p>
+
+                <div class="product-price-box">
+                    <span class="price-label">Prix à partir de</span>
+                    <span class="price">Demander un devis</span>
+                </div>
+
+                <div class="product-specs-table">
+                    <div class="specs-title">Caractéristiques techniques</div>
+                    <div class="spec-row">
+                        <div class="spec-label">Capacité</div>
+                        <div class="spec-value">9 bacs</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Dimensions (L x P x H)</div>
+                        <div class="spec-value">1216 x 721 x 1198 mm</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Poids</div>
+                        <div class="spec-value">86 kg</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Consommation</div>
+                        <div class="spec-value">0,8 A</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Volume brut / net</div>
+                        <div class="spec-value">444 L / 220 L</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Température fonctionnement</div>
+                        <div class="spec-value">-14 à -23°C</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Température ambiante</div>
+                        <div class="spec-value">+16 à +35°C</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Alimentation</div>
+                        <div class="spec-value">220-240 V</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-label">Garantie</div>
+                        <div class="spec-value">2 ans</div>
+                    </div>
+                </div>
+
+                <div class="product-features">
+                    <h3>Points forts</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📦</span>
+                            <span>Format idéal</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💰</span>
+                            <span>Meilleur tarif</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">❄️</span>
+                            <span>Sans humidité</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Vitrage anti-buée</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🧹</span>
+                            <span>Économique</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Grande capacité</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="btn btn-primary">Demander un devis</a>
+                    <a href="tel:0954934990" class="btn btn-secondary">📞 09 54 93 49 90</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <h2>Autres vitrines</h2>
+        <div class="related-grid">
+            <a href="vitrine-sublimo-7-bacs.html" class="related-card">
+                <div class="image">🍨</div>
+                <h4>SUBLIMO 7 Bacs</h4>
+                <p class="price">Compact</p>
+            </a>
+            <a href="vitrine-sublimo-12-bacs.html" class="related-card">
+                <div class="image">🍨</div>
+                <h4>SUBLIMO 12 Bacs</h4>
+                <p class="price">Pro</p>
+            </a>
+            <a href="vitrine-sublimo-18-bacs.html" class="related-card">
+                <div class="image">🍨</div>
+                <h4>SUBLIMO 18 Bacs</h4>
+                <p class="price">Premium</p>
+            </a>
+        </div>
+    </section>
+
+    <script src="../navbar-inline.js"></script>
+    <script src="../footer-inline.js"></script>
+</body>
+</html>
