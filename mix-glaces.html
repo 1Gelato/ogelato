@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Mix Glaces | O'Gelato - Préparations pour Glaces Soft, Gelato, Yaourt Glacé</title>
+    <meta name="description" content="Mix glaces professionnels O'Gelato : Mix OGELATO, SUBLIMO, PREMIUM. Préparations prêtes à l'emploi pour glaces soft, gelato artisanal. DDM 3 ans, stockage ambiant.">
+    <meta name="keywords" content="mix glace, préparation glace, mix soft, gelato poudre, yaourt glacé, consommable glacier, mix professionnel">
+    <meta name="author" content="O'Gelato">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ogelato.fr/mix-glaces.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ogelato.fr/mix-glaces.html">
+    <meta property="og:title" content="Mix Glaces Professionnels | O'Gelato">
+    <meta property="og:description" content="Découvrez nos mix pour glaces soft et gelato artisanal. Qualité premium, large choix de parfums.">
+    <meta property="og:image" content="https://www.ogelato.fr/images/mix-og.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --fraise: #E84A5F;
+            --fraise-light: #FF6B7A;
+            --chocolat: #5D4037;
+            --caramel: #D4A574;
+            --vanille: #FFF8E7;
+            --cream: #FFFBF5;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --white: #FFFFFF;
+            --teal: #2E7D8A;
+            --teal-light: #3A9FAD;
+            
+            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            --gradient-teal: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+            
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            --shadow-card-hover: 0 20px 50px rgba(232, 74, 95, 0.25);
+            
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 90px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-teal);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 5rem 2rem;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-fraise);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .product-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            color: var(--fraise);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .product-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--gradient-fraise);
+            color: white;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-cta {
+            background: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .products-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Consommables Professionnels</span>
+            <h1 class="hero-title">Nos Mix Glaces</h1>
+            <p class="hero-subtitle">Préparations premium pour glaces soft et gelato artisanal</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <h2 class="section-title">Nos Gammes de Mix</h2>
+            
+            <div class="products-grid">
+                <!-- Mix OGELATO -->
+                <a href="produits/mix-ogelato.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Best-seller</span>
+                        <span style="font-size: 8rem;">🍦</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mix OGELATO</h3>
+                        <p class="product-desc">Mix prêt à l'emploi pour glaces Soft. Carton de 2 poches de 4,5kg.</p>
+                        <ul class="product-features">
+                            <li>Stockage à température ambiante</li>
+                            <li>DDM de 3 ans</li>
+                            <li>Ouverture facile</li>
+                            <li>6 parfums crème disponibles</li>
+                            <li>3 parfums sorbet</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Mix SUBLIMO -->
+                <a href="produits/mix-sublimo.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Gelato</span>
+                        <span style="font-size: 8rem;">🍨</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mix SUBLIMO</h3>
+                        <p class="product-desc">Saveurs complètes de Gelato en mix poudre, prêtes à l'emploi.</p>
+                        <ul class="product-features">
+                            <li>Uniquement eau ou lait</li>
+                            <li>Large choix de parfums</li>
+                            <li>Mix poudre à reconstituer</li>
+                            <li>Sachet de 1,2kg à 1,5kg</li>
+                            <li>Carton de 8 à 10 sachets</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Mix OGELATO PREMIUM -->
+                <a href="produits/mix-ogelato-premium.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Premium</span>
+                        <span style="font-size: 8rem;">🥛</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mix OGELATO PREMIUM</h3>
+                        <p class="product-desc">Glace premium avec 26% de matière grasse et ingrédients naturels.</p>
+                        <ul class="product-features">
+                            <li>Lait entier 26% MG</li>
+                            <li>Ingrédients naturels sélectionnés</li>
+                            <li>Goût intense et onctueux</li>
+                            <li>Qualité supérieure</li>
+                            <li>Carton de 2 poches 4,5kg</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navbar & Footer Scripts -->
+    <script src="navbar-inline.js"></script>
+    <script src="footer-inline.js"></script>
+</body>
+</html>
