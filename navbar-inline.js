@@ -472,7 +472,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="index.html#location">Location Machines</a></li>
+                <li><a href="location-machines.html">Location Machines</a></li>
                 <li class="nav-dropdown">
                     <a href="vitrines-glaces.html" class="dropdown-trigger">Vitrines <span class="dropdown-arrow">▼</span></a>
                     <div class="dropdown-menu glass-dropdown">
