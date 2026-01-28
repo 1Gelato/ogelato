@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Vitrines Glaces SUBLIMO | O'Gelato - 7, 9, 12, 18 Bacs Professionnelles</title>
+    <meta name="description" content="Vitrines à glaces professionnelles SUBLIMO : 7, 9, 12 et 18 bacs. Meilleur tarif, faible consommation, simple d'utilisation. Idéal pour glaciers, pâtisseries et restaurants.">
+    <meta name="keywords" content="vitrine glace, vitrine glacier, SUBLIMO, vitrine 7 bacs, vitrine 9 bacs, vitrine 12 bacs, vitrine 18 bacs, vitrine professionnelle, matériel glacier">
+    <meta name="author" content="O'Gelato">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ogelato.fr/vitrines-glaces.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ogelato.fr/vitrines-glaces.html">
+    <meta property="og:title" content="Vitrines Glaces SUBLIMO | 7, 9, 12, 18 Bacs">
+    <meta property="og:description" content="Découvrez notre gamme de vitrines à glaces professionnelles SUBLIMO. Le meilleur tarif du marché avec une qualité premium.">
+    <meta property="og:image" content="https://www.ogelato.fr/images/vitrines-og.jpg">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Vitrines Glaces SUBLIMO",
+        "description": "Gamme complète de vitrines à glaces professionnelles SUBLIMO 7, 9, 12 et 18 bacs"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --fraise: #E84A5F;
+            --fraise-light: #FF6B7A;
+            --chocolat: #5D4037;
+            --caramel: #D4A574;
+            --vanille: #FFF8E7;
+            --cream: #FFFBF5;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --white: #FFFFFF;
+            
+            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            --shadow-card-hover: 0 20px 50px rgba(232, 74, 95, 0.25);
+            
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 90px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4A8895 0%, #5FA4B3 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .hero-feature::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 5rem 2rem;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '🍨';
+            font-size: 8rem;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-fraise);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .product-specs {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-specs li {
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-specs li::before {
+            content: '•';
+            color: var(--fraise);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .product-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--gradient-fraise);
+            color: white;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-cta {
+            background: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .products-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Gamme SUBLIMO Series</span>
+            <h1 class="hero-title">Vitrines Glaces SUBLIMO</h1>
+            <p class="hero-subtitle">7, 9, 12, 18 bacs - Le meilleur tarif des vitrines à glaces</p>
+            
+            <div class="hero-features">
+                <div class="hero-feature">Simple d'utilisation & de nettoyage</div>
+                <div class="hero-feature">Faible consommation</div>
+                <div class="hero-feature">Ni condensation, ni humidité</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <h2 class="section-title">Nos Modèles de Vitrines</h2>
+            
+            <div class="products-grid">
+                <!-- Vitrine 7 Bacs -->
+                <a href="produits/vitrine-sublimo-7-bacs.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Compact</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">SUBLIMO 7 Bacs</h3>
+                        <ul class="product-specs">
+                            <li>Capacité : 7 bacs de 5L</li>
+                            <li>Dimensions : 1016 x 721 x 1198 mm</li>
+                            <li>Poids : 73 kg</li>
+                            <li>Consommation : 0,7 A</li>
+                            <li>Température : -14 à -23°C</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Vitrine 9 Bacs -->
+                <a href="produits/vitrine-sublimo-9-bacs.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Populaire</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">SUBLIMO 9 Bacs</h3>
+                        <ul class="product-specs">
+                            <li>Capacité : 9 bacs de 5L</li>
+                            <li>Dimensions : 1216 x 721 x 1198 mm</li>
+                            <li>Poids : 86 kg</li>
+                            <li>Consommation : 0,8 A</li>
+                            <li>Température : -14 à -23°C</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Vitrine 12 Bacs -->
+                <a href="produits/vitrine-sublimo-12-bacs.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Pro</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">SUBLIMO 12 Bacs</h3>
+                        <ul class="product-specs">
+                            <li>Capacité : 12 bacs de 5L</li>
+                            <li>Dimensions : 1162 x 906 x 1248 mm</li>
+                            <li>Poids : 104 kg</li>
+                            <li>Consommation : 1,7 A</li>
+                            <li>Température : -14 à -23°C</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Vitrine 18 Bacs -->
+                <a href="produits/vitrine-sublimo-18-bacs.html" class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Premium</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">SUBLIMO 18 Bacs</h3>
+                        <ul class="product-specs">
+                            <li>Capacité : 18 bacs de 5L</li>
+                            <li>Dimensions : 1666 x 906 x 1248 mm</li>
+                            <li>Poids : 135 kg</li>
+                            <li>Consommation : 2,0 A</li>
+                            <li>Température : -14 à -23°C</li>
+                        </ul>
+                        <div class="product-cta">
+                            Voir les détails →
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navbar & Footer Scripts -->
+    <script src="navbar-inline.js"></script>
+    <script src="footer-inline.js"></script>
+</body>
+</html>
