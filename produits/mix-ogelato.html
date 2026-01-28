@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix OGELATO | O'Gelato - Préparation pour Glaces Professionnelles</title>
+    <meta name="description" content="Mix OGELATO - Mix prêt à l'emploi pour glaces Soft - Stockage ambiant - DDM 3 ans. VENDU PAR CARTON DE 2 POCHES DE 4,5KG">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fraise: #E84A5F;
+            --fraise-light: #FF6B7A;
+            --chocolat: #5D4037;
+            --vanille: #FFF8E7;
+            --cream: #FFFBF5;
+            --cream-dark: #F5EDE3;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --light-gray: #E8E0D8;
+            --white: #FFFFFF;
+            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(180deg, var(--vanille) 0%, var(--cream) 50%, var(--cream-dark) 100%);
+            background-attachment: fixed;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .breadcrumb {
+            padding: 7rem 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .breadcrumb a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover { color: var(--fraise); }
+        .breadcrumb span { color: var(--fraise); }
+        .product-page {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .product-gallery { position: sticky; top: 100px; }
+        .product-main-image {
+            background: linear-gradient(135deg, #2E7D8A 0%, #3A9FAD 100%);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            position: relative;
+        }
+        .product-main-image .badge {
+            position: absolute;
+            top: 1.5rem; left: 1.5rem;
+            background: var(--fraise);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+        }
+        .product-main-image .badge-type {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: white;
+            color: var(--fraise);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .product-main-image .image-placeholder {
+            font-size: 12rem;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+        .product-thumbnails {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .thumbnail {
+            width: 80px; height: 80px;
+            background: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .thumbnail:hover, .thumbnail.active { border-color: var(--fraise); }
+        .product-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        .product-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .product-price-box {
+            background: var(--gradient-fraise);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+        .product-price-box .price-label { font-size: 0.9rem; opacity: 0.9; }
+        .product-price-box .price { font-size: 2rem; font-weight: 700; }
+        .product-desc {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+        }
+        .product-desc h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--fraise);
+        }
+        .product-desc p {
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        .product-specs {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+        }
+        .product-specs h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        .spec-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .spec-item:last-child { border-bottom: none; }
+        .spec-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        .spec-value {
+            color: var(--gray);
+            font-style: italic;
+        }
+        .product-features {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+        }
+        .product-features h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+        }
+        .feature-icon {
+            width: 36px; height: 36px;
+            background: var(--fraise);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+        .cta-buttons { display: flex; gap: 1rem; }
+        .btn {
+            flex: 1;
+            padding: 1.25rem 2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--gradient-fraise);
+            color: white;
+            box-shadow: 0 8px 25px rgba(232, 74, 95, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(232, 74, 95, 0.45);
+        }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--dark);
+        }
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+        .related-products {
+            padding: 4rem 2rem;
+            background: white;
+            margin-top: 4rem;
+        }
+        .related-products h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .related-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .related-card {
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(61, 44, 41, 0.15);
+        }
+        .related-card .image { font-size: 4rem; margin-bottom: 1rem; }
+        .related-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .related-card .price { color: var(--fraise); font-weight: 600; }
+        @media (max-width: 992px) {
+            .product-container { grid-template-columns: 1fr; }
+            .product-gallery { position: static; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .product-info h1 { font-size: 2rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="breadcrumb">
+        <a href="../index.html">Accueil</a> / 
+        <a href="../mix-glaces.html">Mix Glaces</a> / 
+        <span>Mix OGELATO</span>
+    </div>
+
+    <section class="product-page">
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="product-main-image">
+                    <span class="badge">Best-seller</span>
+                    <span class="badge-type">CONSOMMABLE</span>
+                    <span class="image-placeholder">🍦</span>
+                </div>
+                <div class="product-thumbnails">
+                    <div class="thumbnail active">🍦</div>
+                    <div class="thumbnail">📦</div>
+                    <div class="thumbnail">🏷️</div>
+                    <div class="thumbnail">📋</div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Mix OGELATO</h1>
+                <p class="product-subtitle">Mix prêt à l'emploi pour glaces Soft - Stockage ambiant - DDM 3 ans</p>
+
+                <div class="product-price-box">
+                    <span class="price-label">Prix sur devis</span>
+                    <span class="price">À partir de € HT</span>
+                </div>
+
+                <div class="product-desc">
+                    <h3>VENDU PAR CARTON DE 2 POCHES DE 4,5KG</h3>
+                    <p>Mix prêt à l'emploi pour glaces Soft. Stockage à température ambiante. DDM de 3 ans. Ouverture facile. Encombrement minimum avant et après usage. Simplicité d'utilisation.</p>
+                </div>
+
+                <div class="product-specs">
+                    <h3>Nos Parfums</h3>
+                    <div class="spec-item">
+                        <div class="spec-label">Crème :</div>
+                        <div class="spec-value">Vanille, Fraise, Chocolat, Caramel Beurre Salé, Café, Noix de Coco</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Sorbet :</div>
+                        <div class="spec-value">Framboise, Passion, Cassis</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Emballage :</div>
+                        <div class="spec-value">Carton de 2 poches de 4,5kg</div>
+                    </div>
+                </div>
+
+                <div class="product-features">
+                    <h3>Avantages</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📦</span>
+                            <span>Stockage ambiant</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⏰</span>
+                            <span>DDM 3 ans</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✨</span>
+                            <span>Prêt à l'emploi</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🍨</span>
+                            <span>6 parfums crème</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🍓</span>
+                            <span>3 parfums sorbet</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Ouverture facile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="btn btn-primary">Demander un devis</a>
+                    <a href="tel:0954934990" class="btn btn-secondary">📞 09 54 93 49 90</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <h2>Autres mix glaces</h2>
+        <div class="related-grid">
+            <a href="mix-ogelato.html" class="related-card">
+                <div class="image">🍦</div>
+                <h4>Mix OGELATO</h4>
+                <p class="price">Best-seller</p>
+            </a>
+            <a href="mix-sublimo.html" class="related-card">
+                <div class="image">🍨</div>
+                <h4>Mix SUBLIMO</h4>
+                <p class="price">Gelato</p>
+            </a>
+            <a href="mix-ogelato-premium.html" class="related-card">
+                <div class="image">🥛</div>
+                <h4>Mix OGELATO PREMIUM</h4>
+                <p class="price">Premium</p>
+            </a>
+        </div>
+    </section>
+
+    <script src="../navbar-inline.js"></script>
+    <script src="../footer-inline.js"></script>
+</body>
+</html>
