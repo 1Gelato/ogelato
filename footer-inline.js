@@ -21,8 +21,33 @@
         }
         
         .footer-brand .logo {
-            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
             margin-bottom: 1rem;
+        }
+        
+        .footer-brand .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #E84A5F 0%, #FF6B7A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .footer-brand .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E84A5F 0%, #FF6B7A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
         
         .footer-brand p {
@@ -104,6 +129,10 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+            
+            .footer-brand .logo {
+                justify-content: center;
             }
             
             .footer-social {
