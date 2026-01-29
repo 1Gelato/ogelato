@@ -447,11 +447,6 @@
                             <a href="produits/mix-sublimo.html" class="dropdown-item">Mix SUBLIMO</a>
                             <a href="produits/mix-ogelato-premium.html" class="dropdown-item">Mix OGELATO PREMIUM</a>
                         </div>
-                        <div class="dropdown-section">
-                            <h4 class="dropdown-title">Cornets</h4>
-                            <a href="produits/cornet-ogelato.html" class="dropdown-item">Cornet OGELATO</a>
-                            <a href="produits/cornet-artisano.html" class="dropdown-item">Cornet ARTISANO</a>
-                            <a href="produits/cornet-prima.html" class="dropdown-item">Cornet PRIMA</a>
                         </div>
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
