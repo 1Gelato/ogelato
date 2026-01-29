@@ -1,11 +1,16 @@
-# Robots.txt pour O'Gelato
-# https://www.ogelato.fr
+# robots.txt pour O'Gelato
 
 User-agent: *
 Allow: /
 
+# Bloquer les fichiers techniques
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /navbar-inline.js
+Disallow: /footer-inline.js
+
+# Autoriser l'indexation des images
+Allow: /images/
+
 # Sitemap
 Sitemap: https://www.ogelato.fr/sitemap.xml
-
-# Crawl-delay recommandé
-Crawl-delay: 10

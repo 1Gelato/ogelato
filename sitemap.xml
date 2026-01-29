@@ -1,57 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Page principale -->
     <url>
         <loc>https://www.ogelato.fr/</loc>
-        <lastmod>2025-01-24</lastmod>
+        <lastmod>2025-01-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
+    
+    <!-- Pages catalogue principales -->
     <url>
-        <loc>https://www.ogelato.fr/#machines-glaces</loc>
-        <lastmod>2025-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://www.ogelato.fr/#machines-granites</loc>
-        <lastmod>2025-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://www.ogelato.fr/#location</loc>
-        <lastmod>2025-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://www.ogelato.fr/#vitrines</loc>
-        <lastmod>2025-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.ogelato.fr/#cuisson</loc>
-        <lastmod>2025-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.ogelato.fr/#products</loc>
-        <lastmod>2025-01-24</lastmod>
+        <loc>https://www.ogelato.fr/machines-glaces.html</loc>
+        <lastmod>2025-01-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
+    
     <url>
-        <loc>https://www.ogelato.fr/#offers</loc>
-        <lastmod>2025-01-24</lastmod>
+        <loc>https://www.ogelato.fr/machines-granites.html</loc>
+        <lastmod>2025-01-28</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/vitrines-glaces.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/mix-glaces.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    
     <url>
-        <loc>https://www.ogelato.fr/#contact</loc>
-        <lastmod>2025-01-24</lastmod>
+        <loc>https://www.ogelato.fr/machines-cuisson.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Pages services -->
+    <url>
+        <loc>https://www.ogelato.fr/location-machines.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/sav-maintenance.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Pages institutionnelles -->
+    <url>
+        <loc>https://www.ogelato.fr/qui-sommes-nous.html</loc>
+        <lastmod>2025-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/devenir-partenaire.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/ligne-verte-ecologique.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/cgv-livraison.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Pages produits - Machines à glace -->
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-3.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-3-plus.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-4.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-2.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-2-plus.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/kion-2-comptoir.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-1.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-1-plus.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/tutto-gelato-auto.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Pages produits - Vitrines -->
+    <url>
+        <loc>https://www.ogelato.fr/produits/vitrine-sublimo-7-bacs.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/vitrine-sublimo-9-bacs.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/vitrine-sublimo-12-bacs.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/vitrine-sublimo-18-bacs.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Pages produits - Mix glaces -->
+    <url>
+        <loc>https://www.ogelato.fr/produits/mix-ogelato.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/mix-sublimo.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.ogelato.fr/produits/mix-ogelato-premium.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
 </urlset>
