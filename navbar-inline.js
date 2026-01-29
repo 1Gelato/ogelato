@@ -205,14 +205,22 @@
             padding: 1.5rem;
             opacity: 0;
             visibility: hidden;
+            display: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1000;
-            display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
         
         .dropdown-menu.active {
+            display: grid;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .nav-dropdown:hover .dropdown-menu {
+            display: grid;
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
@@ -447,6 +455,11 @@
                             <a href="produits/mix-sublimo.html" class="dropdown-item">Mix SUBLIMO</a>
                             <a href="produits/mix-ogelato-premium.html" class="dropdown-item">Mix OGELATO PREMIUM</a>
                         </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Cornets</h4>
+                            <a href="produits/cornet-ogelato.html" class="dropdown-item">Cornet OGELATO</a>
+                            <a href="produits/cornet-artisano.html" class="dropdown-item">Cornet ARTISANO</a>
+                            <a href="produits/cornet-prima.html" class="dropdown-item">Cornet PRIMA</a>
                         </div>
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
