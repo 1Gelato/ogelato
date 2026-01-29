@@ -450,6 +450,8 @@
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
                             <a href="machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                            <a href="mix-glaces.html" class="dropdown-item dropdown-highlight">→ Tous nos mix</a>
+                            <a href="cornets-glaces.html" class="dropdown-item dropdown-highlight">→ Tous nos cornets</a>
                         </div>
                     </div>
                 </li>
@@ -486,6 +488,21 @@
                         <div class="dropdown-section">
                             <h4 class="dropdown-title">Voir tout</h4>
                             <a href="vitrines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les vitrines</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="cornets-glaces.html" class="dropdown-trigger">Cornets <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Cornets Gaufrés</h4>
+                            <a href="produits/cornet-ogelato.html" class="dropdown-item">Cornet OGELATO</a>
+                            <a href="produits/cornet-artisano.html" class="dropdown-item">Cornet ARTISANO</a>
+                            <a href="produits/cornet-prima.html" class="dropdown-item">Cornet PRIMA</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="cornets-glaces.html" class="dropdown-item dropdown-highlight">→ Tous nos cornets</a>
                         </div>
                     </div>
                 </li>
