@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Cornets à Glace Professionnels Gaufrés | O'Gelato - Qualité Artisanale</title>
+    <meta name="description" content="Cornets à glace professionnels gaufrés pour glacier. OGELATO, ARTISANO, PRIMA. Qualité artisanale, différents diamètres. Livraison rapide Grand Ouest.">
+    <meta name="keywords" content="cornet glace professionnel, cornet gaufré glacier, cornet artisanal gelato, achat cornet glace, fournisseur cornet glacier, cornet qualité professionnelle">
+    <meta name="author" content="O'Gelato">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ogelato.fr/cornets-glaces.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ogelato.fr/cornets-glaces.html">
+    <meta property="og:title" content="Cornets à Glace Professionnels | O'Gelato">
+    <meta property="og:description" content="Cornets gaufrés artisanaux pour glaciers professionnels. 3 modèles, qualité premium.">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Cornets à Glace Professionnels",
+        "description": "Gamme de cornets gaufrés artisanaux pour glaciers professionnels",
+        "provider": {
+            "@type": "Organization",
+            "name": "O'Gelato France"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --caramel: #D4A574;
+            --caramel-dark: #B8925F;
+            --cream: #FFFBF5;
+            --dark: #3D2C29;
+            --gray: #6B5B55;
+            --fraise: #E84A5F;
+            
+            --gradient-caramel: linear-gradient(135deg, #D4A574 0%, #B8925F 100%);
+            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 90px;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--gradient-caramel);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        /* Content */
+        .content-section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(212, 165, 116, 0.25);
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #f8f5f1 0%, #fff 100%);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .product-image-placeholder {
+            font-size: 10rem;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--caramel-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-subtitle {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gradient-caramel);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Features */
+        .features-section {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            color: var(--caramel-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            padding: 5rem 2rem;
+            background: var(--cream);
+        }
+
+        .comparison-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--caramel-dark);
+        }
+
+        .comparison-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: var(--gradient-caramel);
+            color: white;
+            padding: 1.5rem 1rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid rgba(107, 91, 85, 0.1);
+            color: var(--gray);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-badge">Consommables Professionnels</span>
+        <h1 class="hero-title">Cornets à Glace Gaufrés</h1>
+        <p class="hero-subtitle">Qualité artisanale pour votre gelato</p>
+    </section>
+
+    <!-- Intro -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-intro">
+                <p>
+                    Découvrez notre gamme de <strong>cornets à glace professionnels gaufrés</strong>, 
+                    spécialement conçus pour sublimer vos <strong>gelatos artisanaux</strong>.
+                </p>
+                <p>
+                    Des cornets <strong>croustillants et résistants</strong>, disponibles en différents diamètres 
+                    pour s'adapter à tous vos besoins. Parfaits avec nos <a href="mix-glaces.html" style="color: var(--fraise); font-weight: 600;">mix glaces O'Gelato</a>.
+                </p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <!-- Cornet OGELATO -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🍦</span>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-title">Cornet OGELATO</h2>
+                        <p class="product-subtitle">Diamètres Ø54 / Ø66</p>
+                        <div class="product-price">À partir de € HT</div>
+                        <a href="produits/cornet-ogelato.html" class="btn">Voir les détails</a>
+                    </div>
+                </div>
+
+                <!-- Cornet ARTISANO -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🧇</span>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-title">Cornet ARTISANO</h2>
+                        <p class="product-subtitle">Diamètres Ø50 / Ø60 / Ø70</p>
+                        <div class="product-price">À partir de € HT</div>
+                        <a href="produits/cornet-artisano.html" class="btn">Voir les détails</a>
+                    </div>
+                </div>
+
+                <!-- Cornet PRIMA -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-image-placeholder">🥐</span>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-title">Cornet PRIMA</h2>
+                        <p class="product-subtitle">Diamètres Ø45 / Ø50 / Ø60</p>
+                        <div class="product-price">À partir de € HT</div>
+                        <a href="produits/cornet-prima.html" class="btn">Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <h3>Qualité Premium</h3>
+                    <p>Cornets gaufrés de haute qualité, croustillants et savoureux pour sublimer vos gelatos.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💪</div>
+                    <h3>Résistants</h3>
+                    <p>Tenue parfaite, ne ramollissent pas. Idéal pour vos clients qui prennent leur temps.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📦</div>
+                    <h3>Conditionnement Pro</h3>
+                    <p>Cartons de 150 à 360 pièces selon les modèles. Stockage facile et pratique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="comparison-title">Tableau Comparatif</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Modèle</th>
+                            <th>Diamètres</th>
+                            <th>Conditionnement</th>
+                            <th>Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cornet OGELATO</strong></td>
+                            <td>Ø54 / Ø66</td>
+                            <td>Carton 150-180 pcs</td>
+                            <td>Gelato artisanal / Soft</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cornet ARTISANO</strong></td>
+                            <td>Ø50 / Ø60 / Ø70</td>
+                            <td>Carton 108-200 pcs</td>
+                            <td>Gelato artisanal / Soft</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cornet PRIMA</strong></td>
+                            <td>Ø45 / Ø50 / Ø60</td>
+                            <td>Carton 180-360 pcs</td>
+                            <td>Gelato artisanal / Soft</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="navbar-inline.js"></script>
+    <script src="footer-inline.js"></script>
+</body>
+</html>
