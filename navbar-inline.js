@@ -654,6 +654,12 @@
         
         // Attendre que le DOM soit prêt
         requestAnimationFrame(() => {
+            // FORCER la fermeture de tous les dropdowns au chargement
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.display = 'none';
+                menu.classList.remove('active');
+            });
+            
             adjustLinks();
             initDropdowns();
             initMobileMenu();
