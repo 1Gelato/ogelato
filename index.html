@@ -1,2872 +1,665 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+// navbar-inline.js - Version robuste
+(function() {
+    'use strict';
     
-    <!-- SEO Meta Tags -->
-    <title>O'Gelato | Vente & Location Machines à Glaces Professionnelles - France & Grand Ouest</title>
-    <meta name="description" content="O'Gelato, spécialiste en vente et location de machines à glaces italiennes, granités, vitrines réfrigérées et matériel de cuisson. 30 ans d'expérience. Livraison France entière. Devis gratuit.">
-    <meta name="keywords" content="machine à glace professionnelle, location machine glace, machine granité, vitrine glace, matériel glacier, Tutto Gelato, machine soft, frozen yogurt, crêpière professionnelle, France, Grand Ouest">
-    <meta name="author" content="O'Gelato">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.ogelato.fr/">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.ogelato.fr/">
-    <meta property="og:title" content="O'Gelato | Machines à Glaces Professionnelles - Vente & Location">
-    <meta property="og:description" content="Spécialiste en vente et location de machines à glaces, granités et vitrines. 30 ans d'expérience, livraison France entière. Demandez votre devis gratuit !">
-    <meta property="og:image" content="https://www.ogelato.fr/images/og-image.jpg">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="O'Gelato">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.ogelato.fr/">
-    <meta name="twitter:title" content="O'Gelato | Machines à Glaces Professionnelles">
-    <meta name="twitter:description" content="Vente et location de machines à glaces, granités et vitrines. 30 ans d'expérience en France.">
-    <meta name="twitter:image" content="https://www.ogelato.fr/images/og-image.jpg">
-    
-    <!-- Geo Tags pour SEO local -->
-    <meta name="geo.region" content="FR">
-    <meta name="geo.placename" content="France, Grand Ouest">
-    
-    <!-- Schema.org LocalBusiness -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "O'Gelato",
-        "description": "Vente et location de machines à glaces professionnelles, machines granités, vitrines réfrigérées et matériel de cuisson pour professionnels CHR.",
-        "url": "https://www.ogelato.fr",
-        "telephone": ["+33954934990", "+33698722040"],
-        "email": "contact@ogelato.fr",
-        "address": {
-            "@type": "PostalAddress",
-            "addressRegion": "Grand Ouest",
-            "addressCountry": "FR"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "addressCountry": "FR"
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "18:00"
-        },
-        "priceRange": "€€€",
-        "image": "https://www.ogelato.fr/images/logo-ogelato.png",
-        "sameAs": [
-            "https://www.facebook.com/ogelato",
-            "https://www.instagram.com/ogelato"
-        ],
-        "areaServed": {
-            "@type": "Country",
-            "name": "France"
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Matériel Glacier Professionnel",
-            "itemListElement": [
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Machines à Glaces Italiennes",
-                    "description": "Gamme Tutto Gelato - TG1, TG2, TG3, TG4, TG Auto"
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Machines Granités",
-                    "description": "Gamme Tutto Granito - FC1, FC2, FC3"
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Vitrines Réfrigérées",
-                    "description": "Vitrines glaces 12, 18, 24 bacs - Froid statique et ventilé"
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Location Machines",
-                    "description": "Location saisonnière, événementielle et longue durée"
-                }
-            ]
-        }
+    // Vérifier si déjà chargé pour éviter les doublons
+    if (window.ogelatoNavbarLoaded) {
+        console.log('Navbar already loaded, skipping...');
+        return;
     }
-    </script>
+    window.ogelatoNavbarLoaded = true;
     
-    <!-- Schema.org Organization -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "O'Gelato",
-        "url": "https://www.ogelato.fr",
-        "logo": "https://www.ogelato.fr/images/logo-ogelato.png",
-        "foundingDate": "1995",
-        "description": "Expert en matériel glacier professionnel depuis 30 ans",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+33954934990",
-            "contactType": "sales",
-            "availableLanguage": "French",
-            "areaServed": "FR"
-        }
-    }
-    </script>
+    console.log('Loading O\'Gelato Navbar...');
     
-    <!-- Schema.org BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Accueil",
-                "item": "https://www.ogelato.fr/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Machines à Glaces",
-                "item": "https://www.ogelato.fr/#machines-glaces"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Machines Granités",
-                "item": "https://www.ogelato.fr/#machines-granites"
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "name": "Location",
-                "item": "https://www.ogelato.fr/#location"
-            },
-            {
-                "@type": "ListItem",
-                "position": 5,
-                "name": "Contact",
-                "item": "https://www.ogelato.fr/#contact"
-            }
-        ]
-    }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
+    // Injecter le CSS
+    const navbarCSS = `
+        <style id="navbar-inline-css">
         :root {
-            /* Palette Gourmande Glacier */
             --fraise: #E84A5F;
             --fraise-light: #FF6B7A;
-            --fraise-dark: #C73E50;
-            --chocolat: #5D4037;
-            --chocolat-light: #795548;
-            --caramel: #D4A574;
-            --caramel-light: #E8C9A0;
-            --vanille: #FFF8E7;
-            --menthe: #7FCDBB;
-            --menthe-light: #A8E6CF;
-            --pistache: #93C572;
-            
-            /* Neutres */
-            --cream: #FFFBF5;
-            --cream-dark: #F5EDE3;
             --dark: #3D2C29;
-            --gray: #6B5B55;
-            --light-gray: #E8E0D8;
-            --white: #FFFFFF;
-            
-            /* Dégradés gourmands */
-            --gradient-fraise: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
-            --gradient-chocolat: linear-gradient(135deg, var(--chocolat) 0%, var(--chocolat-light) 100%);
-            --gradient-caramel: linear-gradient(135deg, var(--caramel) 0%, #E8B98A 100%);
-            --gradient-menthe: linear-gradient(135deg, var(--menthe) 0%, var(--menthe-light) 100%);
-            --gradient-sunset: linear-gradient(135deg, var(--fraise) 0%, var(--caramel) 100%);
-            
-            /* Ombres */
             --shadow-soft: 0 10px 40px rgba(61, 44, 41, 0.08);
-            --shadow-medium: 0 20px 60px rgba(61, 44, 41, 0.15);
-            --shadow-card: 0 8px 32px rgba(61, 44, 41, 0.12);
-            --shadow-card-hover: 0 20px 50px rgba(232, 74, 95, 0.25);
-            
-            /* Rayons */
-            --radius-sm: 12px;
-            --radius-md: 20px;
-            --radius-lg: 32px;
             --radius-xl: 48px;
+            --radius-lg: 32px;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(180deg, var(--vanille) 0%, var(--cream) 50%, var(--cream-dark) 100%);
-            background-attachment: fixed;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ========== ANIMATIONS ========== */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header styles now in navbar-inline.js */
-
-        /* ========== HERO SECTION ========== */
-        .hero {
-            min-height: 100vh;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-bg {
-            position: absolute;
+        
+        header {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(232, 74, 95, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(93, 64, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
-            z-index: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.4s ease;
         }
-
-        .hero-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            overflow: hidden;
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-soft);
         }
-
-        .shape {
-            position: absolute;
-            opacity: 0.7;
-        }
-
-        .gelato-shape {
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-        }
-
-        .shape-1 {
-            width: 120px;
-            height: 220px;
-            top: 10%;
-            right: 5%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .shape-2 {
-            width: 100px;
-            height: 180px;
-            bottom: 15%;
-            left: 3%;
-            animation: float 6s ease-in-out infinite 1s;
-        }
-
-        .shape-3 {
-            width: 80px;
-            height: 150px;
-            top: 50%;
-            right: 15%;
-            animation: float 7s ease-in-out infinite 0.5s;
-        }
-
-        .shape-4 {
-            width: 90px;
-            height: 160px;
-            top: 25%;
-            left: 10%;
-            animation: float 9s ease-in-out infinite 2s;
-        }
-
-        .shape-5 {
-            width: 70px;
-            height: 130px;
-            bottom: 30%;
-            right: 25%;
-            animation: float 5s ease-in-out infinite 1.5s;
-        }
-
-        .hero-content {
+        
+        nav {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
-
-        .hero-text {
-            animation: slideIn 1s ease-out;
-        }
-
-        .hero-badge {
-            display: inline-flex;
+        
+        .logo {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-xl);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--chocolat);
-            box-shadow: var(--shadow-card);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-badge::before {
-            content: '🍦';
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
+            text-decoration: none;
             color: var(--dark);
         }
-
-        .hero-title span {
-            background: var(--gradient-fraise);
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: var(--radius-xl);
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient-fraise);
-            color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.45);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--dark);
-            box-shadow: var(--shadow-card);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .hero-visual {
-            position: relative;
-            animation: scaleIn 1s ease-out 0.3s both;
-        }
-
-        .hero-image-container {
-            position: relative;
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .hero-machines {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .machine-card {
-            background: var(--cream);
-            border-radius: var(--radius-md);
-            padding: 1rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .machine-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .machine-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: contain;
-        }
-
-        .machine-card span {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--gray);
-            margin-top: 0.5rem;
-        }
-
-        .hero-floating-badge {
-            position: absolute;
-            background: white;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-medium);
-            font-weight: 600;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .badge-promo {
-            top: -20px;
-            right: -20px;
-            background: var(--fraise);
-            color: white;
-        }
-
-        .badge-quality {
-            bottom: 20px;
-            left: -30px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .badge-quality::before {
-            content: '✓';
-            width: 24px;
-            height: 24px;
-            background: var(--menthe);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-
-        /* ========== CLIENTS SECTION ========== */
-        .clients {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-tag {
-            display: inline-block;
-            background: var(--gradient-menthe);
-            color: white;
-            padding: 0.5rem 1.25rem;
-            border-radius: var(--radius-xl);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .clients-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .client-tag {
-            background: var(--cream);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-xl);
-            font-weight: 500;
-            color: var(--dark);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .client-tag:hover {
-            background: var(--fraise);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* ========== SERVICES SECTION ========== */
-        .services {
-            padding: 6rem 2rem;
-            background: var(--chocolat);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 30%),
-                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 30%);
-        }
-
-        .services .section-header {
-            position: relative;
-            z-index: 1;
-        }
-
-        .services .section-tag {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .services .section-title {
-            color: white;
-        }
-
-        .services .section-subtitle {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-fraise);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:nth-child(1) { background: var(--caramel-light); }
-        .service-card:nth-child(2) { background: var(--fraise); color: white; }
-        .service-card:nth-child(3) { background: var(--menthe-light); }
-        .service-card:nth-child(4) { background: var(--chocolat); color: white; }
-        .service-card:nth-child(5) { background: var(--pistache); }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1.5rem;
-            background: rgba(0,0,0,0.1);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-
-        .service-card:nth-child(2) .service-icon,
-        .service-card:nth-child(4) .service-icon {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .service-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .service-list {
-            list-style: none;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .service-list li {
-            opacity: 0.9;
-        }
-
-        /* ========== PRODUCTS SECTION ========== */
-        .products {
-            padding: 6rem 2rem;
-            background: var(--cream);
-        }
-
-        .products-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(93, 64, 55, 0.1);
-            transition: all 0.2s ease-out;
-            position: relative;
-            border: 2px solid transparent;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-fraise);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10;
-        }
-
-        .product-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(232, 74, 95, 0.2);
-            border-color: var(--fraise-light);
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--fraise);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: var(--radius-xl);
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 1;
-        }
-
-        .product-badge.promo {
-            background: var(--menthe);
-        }
-
-        .product-badge.occasion {
-            background: var(--caramel);
-            color: var(--dark);
-        }
-
-        .product-image {
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
-
-        .product-specs {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-
-        .product-specs li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 0.4rem;
-        }
-
-        .product-specs li::before {
-            content: '✓';
-            color: var(--menthe);
-            font-weight: bold;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 1rem;
-            border-top: 1px solid var(--light-gray);
-        }
-
-        .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--fraise);
-        }
-
-        .price-old {
-            text-decoration: line-through;
-            color: var(--gray);
-            font-size: 1rem;
-            margin-right: 0.5rem;
-        }
-
-        .btn-small {
-            padding: 0.75rem 1.25rem;
-            font-size: 0.9rem;
-        }
-
-        /* ========== OFFERS SECTION ========== */
-        .offers {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .offers-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .offer-card {
-            background: var(--fraise);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            color: white;
-        }
-
-        .offer-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-        }
-
-        .offer-card.secondary {
-            background: var(--caramel);
-            color: var(--dark);
-        }
-
-        .offer-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .offer-tag {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 0.4rem 1rem;
-            border-radius: var(--radius-xl);
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .offer-card.secondary .offer-tag {
-            background: rgba(0,0,0,0.1);
-        }
-
-        .offer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .offer-description {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .offer-price {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .offer-price .old {
-            font-size: 1.5rem;
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
-
-        .offer-price .new {
-            font-size: 2.5rem;
-            font-weight: 800;
-        }
-
-        .offer-btn {
-            background: white;
-            color: var(--fraise);
-            padding: 1rem 2rem;
-            border-radius: var(--radius-xl);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .offer-card.secondary .offer-btn {
-            background: var(--dark);
-            color: white;
-        }
-
-        .offer-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .offer-visual {
-            position: absolute;
-            right: 2rem;
-            bottom: 2rem;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .offer-visual img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-        }
-
-        /* ========== CONTACT SECTION ========== */
-        .contact {
-            padding: 6rem 2rem;
-            background: var(--dark);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 50%, rgba(46, 196, 182, 0.15) 0%, transparent 40%);
-        }
-
-        .contact-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-fraise);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .contact-form {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--light-gray);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--fraise);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-form .btn {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* Footer styles now in footer-inline.js */
-
-        /* ========== PRODUCT SHOWCASE SECTIONS ========== */
         
-        /* NOUVELLES SECTIONS CATÉGORIES - Design moderne pleine largeur */
-        .category-showcase {
-            padding: 5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .category-showcase.bg-chocolat {
-            background: linear-gradient(145deg, var(--chocolat) 0%, var(--chocolat-light) 100%);
-            color: white;
-        }
-
-        .category-showcase.bg-fraise {
-            background: linear-gradient(145deg, var(--fraise) 0%, var(--fraise-light) 100%);
-            color: white;
-        }
-
-        .category-showcase.bg-menthe {
-            background: linear-gradient(145deg, var(--menthe) 0%, var(--menthe-light) 100%);
-            color: var(--dark);
-        }
-
-        .category-showcase.bg-caramel {
-            background: linear-gradient(145deg, var(--caramel) 0%, var(--caramel-light) 100%);
-            color: var(--dark);
-        }
-
-        .category-showcase.bg-cream {
-            background: var(--cream);
-            color: var(--dark);
-        }
-
-        .category-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .category-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .category-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255,255,255,0.2);
-            border-radius: var(--radius-xl);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .bg-cream .category-badge {
-            background: var(--fraise);
-            color: white;
-        }
-
-        .bg-menthe .category-badge,
-        .bg-caramel .category-badge {
-            background: var(--chocolat);
-            color: white;
-        }
-
-        .category-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .category-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .bg-cream .category-title,
-        .bg-menthe .category-title,
-        .bg-caramel .category-title {
-            color: var(--dark);
-        }
-
-        .bg-cream .category-subtitle,
-        .bg-menthe .category-subtitle,
-        .bg-caramel .category-subtitle {
-            color: var(--gray);
-        }
-
-        /* Grille de produits */
-        .category-products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .category-product-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .bg-cream .category-product-card,
-        .bg-menthe .category-product-card,
-        .bg-caramel .category-product-card {
-            background: white;
-            border: 2px solid var(--light-gray);
-            box-shadow: var(--shadow-card);
-        }
-
-        .category-product-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.25);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .bg-cream .category-product-card:hover,
-        .bg-menthe .category-product-card:hover,
-        .bg-caramel .category-product-card:hover {
-            border-color: var(--fraise);
-            box-shadow: 0 20px 40px rgba(232, 74, 95, 0.15);
-        }
-
-        .category-product-card .icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .category-product-card .name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: block;
-        }
-
-        .category-product-card .spec {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-top: 0.25rem;
-            display: block;
-        }
-
-        /* Features/Avantages */
-        .category-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .category-showcase .feature-item {
+        .nav-links {
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius-md);
-        }
-
-        .bg-cream .feature-item,
-        .bg-menthe .feature-item,
-        .bg-caramel .feature-item {
-            background: white;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .category-showcase .feature-item .icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .category-showcase .feature-item .text {
-            font-weight: 500;
-        }
-
-        .category-showcase .feature-item .text strong {
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .category-showcase .feature-item .text span {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            font-weight: 400;
-        }
-
-        .bg-cream .feature-item .text,
-        .bg-menthe .feature-item .text,
-        .bg-caramel .feature-item .text {
-            color: var(--dark);
-        }
-
-        /* Boutons catégorie */
-        .category-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-category {
-            padding: 1rem 2rem;
-            border-radius: var(--radius-xl);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
+            gap: 2rem;
+            list-style: none;
             align-items: center;
-            gap: 0.5rem;
         }
-
-        .btn-category.primary {
-            background: white;
-            color: var(--chocolat);
+        
+        .nav-links > li {
+            display: flex;
+            align-items: center;
         }
-
-        .btn-category.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .btn-category.secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.4);
-        }
-
-        .btn-category.secondary:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .bg-cream .btn-category.primary {
-            background: var(--gradient-fraise);
-            color: white;
-        }
-
-        .bg-cream .btn-category.secondary,
-        .bg-menthe .btn-category.secondary,
-        .bg-caramel .btn-category.secondary {
-            background: transparent;
+        
+        .nav-links a {
+            text-decoration: none;
             color: var(--dark);
-            border: 2px solid var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
         }
-
-        /* Highlight text */
-        .highlight-text {
-            text-align: center;
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius-md);
-            display: block;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--fraise);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
-
-        .bg-cream .highlight-text {
-            background: var(--vanille);
+        
+        .nav-links a:hover {
             color: var(--fraise);
         }
-
-        /* Responsive sections catégories */
-        @media (max-width: 768px) {
-            .category-showcase {
-                padding: 3rem 1.5rem;
-            }
-            
-            .category-title {
-                font-size: 2rem;
-            }
-            
-            .category-products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .category-features {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Anciens styles product-showcase - conservés pour compatibilité */
-        .product-showcase {
-            padding: 0;
-            min-height: 600px;
-            display: flex;
-        }
-
-        .showcase-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        
+        .nav-links a:hover::after {
             width: 100%;
         }
-
-        .product-showcase.reverse .showcase-container {
-            direction: rtl;
-        }
-
-        .product-showcase.reverse .showcase-container > * {
-            direction: ltr;
-        }
-
-        .showcase-text {
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: white;
-        }
-
-        .showcase-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .showcase-subtitle {
-            font-style: italic;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            text-decoration: underline;
-        }
-
-        .showcase-description {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        .showcase-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .showcase-features li {
-            padding: 0.4rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--dark);
-        }
-
-        .showcase-features li::before {
-            content: '-';
-            position: absolute;
-            left: 0;
-            color: var(--fraise);
-            font-weight: bold;
-        }
-
-        .showcase-features.highlight li {
-            font-size: 1.05rem;
-        }
-
-        .showcase-features.small li {
-            font-size: 0.95rem;
-            padding: 0.25rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .advantages-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 1.5rem 0 1rem;
-            color: var(--dark);
-        }
-
-        .showcase-highlight {
-            font-style: italic;
-            color: var(--fraise);
-            font-weight: 600;
-            margin: 1rem 0 1.5rem;
-        }
-
-        .product-name-highlight {
-            color: var(--fraise);
-            text-decoration: underline;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .showcase-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .btn-outline {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--dark);
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--fraise) 0%, var(--fraise-light) 100%);
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
             border-radius: var(--radius-xl);
-            background: transparent;
-            color: var(--dark);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease !important;
+            white-space: nowrap;
         }
-
-        .btn-outline:hover {
-            background: var(--dark);
-            color: white;
+        
+        .nav-cta::after {
+            display: none !important;
         }
-
-        .btn-dark {
-            background: var(--dark);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: var(--radius-xl);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .btn-dark:hover {
-            background: var(--fraise);
+        
+        .nav-cta:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
         }
-
-        .showcase-visual {
-            padding: 3rem;
-            display: flex;
+        
+        .mobile-toggle {
+            display: none;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .nav-dropdown {
             position: relative;
         }
-
-        .showcase-visual.yellow-bg {
-            background: linear-gradient(145deg, var(--chocolat) 0%, var(--chocolat-light) 100%);
-        }
-
-        .showcase-visual.coral-bg {
-            background: linear-gradient(145deg, var(--fraise) 0%, var(--fraise-light) 100%);
-        }
-
-        .showcase-visual.menthe-bg {
-            background: linear-gradient(145deg, var(--menthe) 0%, var(--menthe-light) 100%);
-        }
-
-        .showcase-visual.caramel-bg {
-            background: linear-gradient(145deg, var(--caramel) 0%, var(--caramel-light) 100%);
-        }
-
-        .gamme-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .gamme-title.dark {
-            color: var(--dark);
-        }
-
-        .gamme-subtitle {
-            color: rgba(255,255,255,0.9);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .gamme-subtitle.dark {
-            color: var(--dark);
-        }
-
-        .machines-display {
+        
+        .dropdown-trigger {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            align-items: flex-end;
+            align-items: center;
+            gap: 0.3rem;
         }
-
-        .machine-item {
-            background: rgba(255,255,255,0.2);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            text-align: center;
+        
+        .dropdown-arrow {
+            font-size: 0.6rem;
             transition: transform 0.3s ease;
         }
-
-        .machine-item:hover {
-            transform: scale(1.05);
+        
+        .nav-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
         }
-
-        .machine-item.large {
-            padding: 2rem;
-        }
-
-        .machine-item .machine-icon {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .machine-item.large .machine-icon {
-            font-size: 6rem;
-        }
-
-        .machine-item span {
-            display: block;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .location-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            width: 100%;
-        }
-
-        .vitrines-display {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .vitrine-item {
-            background: rgba(255,255,255,0.2);
-            border-radius: var(--radius-lg);
-            padding: 2rem 3rem;
-        }
-
-        .vitrine-icon {
-            font-size: 5rem;
-        }
-
-        .vitrine-info {
-            text-align: center;
-            color: var(--dark);
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-
-        .panito-display {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .panito-item {
-            background: rgba(255,255,255,0.3);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-        }
-
-        .panito-icon {
-            font-size: 4rem;
-        }
-
-        .emballages-display {
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 280px;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1rem;
         }
-
-        .emballage-item {
-            background: rgba(255,255,255,0.2);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            font-size: 4rem;
-            text-align: center;
+        
+        .dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
         }
-
-        /* ========== ABOUT SECTION ========== */
-        .about-section {
-            background: white;
+        
+        .glass-dropdown {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        
+        .dropdown-section {
+            padding: 0.5rem 0;
         }
-
-        .about-image {
-            background: linear-gradient(135deg, #3d2c1f 0%, #5a4234 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-        }
-
-        .about-image-placeholder {
-            font-size: 6rem;
-        }
-
-        .about-content {
-            background: var(--caramel);
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .about-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+        
+        .dropdown-title {
+            font-size: 0.7rem;
             font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--fraise);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.2);
         }
-
-        .about-tagline {
-            font-style: italic;
+        
+        .dropdown-item {
+            display: block;
+            padding: 0.4rem 0.5rem;
             color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
         }
-
-        .about-text {
-            color: var(--dark);
-            line-height: 1.7;
-            margin-bottom: 1rem;
+        
+        .dropdown-item:hover {
+            color: var(--fraise);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 1rem;
         }
-
-        .about-links {
-            color: var(--dark);
-            line-height: 1.7;
-            margin-bottom: 2rem;
+        
+        .dropdown-item::after {
+            display: none !important;
         }
-
-        .about-links a {
-            color: var(--dark);
-            text-decoration: underline;
+        
+        .dropdown-highlight {
+            color: var(--fraise) !important;
+            font-weight: 600 !important;
         }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
+        
+        .nav-dropdown:first-child .dropdown-menu {
+            min-width: 650px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .nav-promo {
+            color: var(--fraise) !important;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 0.75rem 1.5rem;
             }
             
-            .service-card:nth-child(4),
-            .service-card:nth-child(5) {
-                grid-column: span 1;
+            /* Désactiver le hover sur mobile */
+            .nav-dropdown:hover .dropdown-menu {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transform: translateX(-50%) translateY(10px) !important;
             }
-        }
-
-        @media (max-width: 992px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text {
-                order: 1;
-            }
-
-            .hero-visual {
-                order: 2;
-            }
-
-            .hero-description {
-                margin: 0 auto 2rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .offers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .showcase-container {
-                grid-template-columns: 1fr;
-            }
-
-            .product-showcase.reverse .showcase-container {
-                direction: ltr;
-            }
-
-            .showcase-text {
-                padding: 3rem 2rem;
-            }
-
-            .showcase-visual {
-                padding: 3rem 2rem;
-                min-height: 400px;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                min-height: 300px;
-            }
-
-            .about-content {
-                padding: 3rem 2rem;
-            }
-
-            .location-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
+            
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 right: 0;
+                bottom: 0;
                 background: white;
                 flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                box-shadow: var(--shadow-medium);
+                padding-top: 90px;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                padding-bottom: 1.5rem;
+                gap: 0;
+                box-shadow: 0 15px 35px rgba(61, 44, 41, 0.15);
+                overflow-y: auto;
+                align-items: stretch;
+                z-index: 999;
             }
-
+            
+            .nav-links > li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .nav-links > li:last-child {
+                border-bottom: none;
+                margin-top: 1rem;
+            }
+            
+            .nav-links a {
+                padding: 1rem 0;
+                font-size: 1rem;
+                display: block;
+            }
+            
             .nav-links.active {
                 display: flex;
             }
-
+            
             .mobile-toggle {
                 display: flex;
+                z-index: 1001;
             }
-
-            /* Mobile dropdown styles */
+            
             .nav-dropdown {
                 width: 100%;
             }
-
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                min-width: 100% !important;
-                opacity: 1;
-                visibility: visible;
-                display: none;
-                padding: 1rem;
-                margin-top: 0.5rem;
-                grid-template-columns: 1fr !important;
-            }
-
-            .nav-dropdown.active .dropdown-menu {
-                display: grid;
-            }
-
-            .nav-dropdown:hover .dropdown-menu {
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            .nav-dropdown.active .dropdown-menu {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .glass-dropdown {
-                background: rgba(255, 255, 255, 0.95);
-                border-radius: var(--radius-md);
-            }
-
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .hero-machines {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-social {
-                justify-content: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .showcase-text {
-                padding: 2rem 1.5rem;
-            }
-
-            .showcase-title {
-                font-size: 1.6rem;
-            }
-
-            .showcase-buttons {
-                flex-direction: column;
-            }
-
-            .showcase-buttons .btn-outline,
-            .showcase-buttons .btn {
-                text-align: center;
-            }
-
-            .gamme-title {
-                font-size: 1.5rem;
-            }
-
-            .machines-display {
-                gap: 1rem;
-            }
-
-            .machine-item {
-                padding: 1rem;
-            }
-
-            .machine-item .machine-icon {
-                font-size: 3rem;
-            }
-
-            .machine-item.large .machine-icon {
-                font-size: 4rem;
-            }
-
-            .location-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .vitrines-display {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .vitrine-item {
-                padding: 1.5rem 2rem;
-            }
-
-            .vitrine-icon {
-                font-size: 3rem;
-            }
-
-            .emballages-display {
-                gap: 1rem;
-            }
-
-            .emballage-item {
-                padding: 1.5rem;
-                font-size: 3rem;
-            }
-
-            .about-title {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 6rem 1rem 3rem;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
+            
+            .dropdown-trigger {
                 width: 100%;
-                justify-content: center;
+                justify-content: space-between;
             }
-
-            .offer-card {
-                padding: 1.5rem;
+            
+            .dropdown-arrow {
+                transition: transform 0.3s ease;
             }
-
-            .offer-title {
-                font-size: 1.5rem;
+            
+            .nav-dropdown.active .dropdown-arrow {
+                transform: rotate(180deg);
             }
-
-            .offer-visual {
+            
+            .dropdown-menu {
+                position: static !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                opacity: 1 !important;
+                visibility: visible !important;
                 display: none;
+                padding: 1rem;
+                margin: 0.5rem 0 0 0;
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem;
+                background: rgba(232, 74, 95, 0.03);
+                border-radius: 8px;
+                box-sizing: border-box;
+            }
+            
+            .dropdown-menu.active {
+                display: grid !important;
+            }
+            
+            .dropdown-section {
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+            
+            .dropdown-title {
+                font-size: 0.75rem;
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.25rem;
+                color: var(--fraise);
+                font-weight: 700;
+            }
+            
+            .dropdown-item {
+                padding: 0.75rem;
+                margin: 0;
+                font-size: 0.95rem;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            
+            .dropdown-item:hover {
+                padding-left: 1rem;
+            }
+            
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+                padding: 1rem !important;
             }
         }
-    </style>
-
-    <!-- Navbar & Footer CSS inline -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-shapes">
-            <!-- Glaces italiennes stylisées -->
-            <svg class="shape shape-1 gelato-shape" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 180L20 80H80L50 180Z" fill="#F4D03F"/>
-                <path d="M15 80C15 50 25 20 50 10C75 20 85 50 85 80H15Z" fill="#FFB6C1"/>
-                <path d="M20 75C20 50 30 25 50 15C70 25 80 50 80 75" stroke="#fff" stroke-width="3" fill="none"/>
-                <ellipse cx="50" cy="45" rx="30" ry="35" fill="#FFB6C1"/>
-                <ellipse cx="50" cy="35" rx="25" ry="28" fill="#FF69B4"/>
-                <ellipse cx="50" cy="28" rx="18" ry="20" fill="#FFB6C1"/>
-                <circle cx="40" cy="40" r="3" fill="#fff" opacity="0.6"/>
-                <circle cx="55" cy="30" r="2" fill="#fff" opacity="0.6"/>
-            </svg>
-            <svg class="shape shape-2 gelato-shape" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 180L20 80H80L50 180Z" fill="#DEB887"/>
-                <ellipse cx="50" cy="50" rx="32" ry="38" fill="#87CEEB"/>
-                <ellipse cx="50" cy="38" rx="26" ry="30" fill="#5DADE2"/>
-                <ellipse cx="50" cy="28" rx="20" ry="22" fill="#87CEEB"/>
-                <path d="M30 55 Q50 65 70 55" stroke="#fff" stroke-width="2" fill="none" opacity="0.5"/>
-                <circle cx="38" cy="35" r="3" fill="#fff" opacity="0.5"/>
-                <circle cx="58" cy="28" r="2" fill="#fff" opacity="0.5"/>
-            </svg>
-            <svg class="shape shape-3 gelato-shape" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 180L20 80H80L50 180Z" fill="#F4D03F"/>
-                <ellipse cx="50" cy="50" rx="32" ry="38" fill="#98FB98"/>
-                <ellipse cx="50" cy="38" rx="26" ry="30" fill="#90EE90"/>
-                <ellipse cx="50" cy="28" rx="20" ry="22" fill="#98FB98"/>
-                <circle cx="42" cy="42" r="4" fill="#228B22" opacity="0.4"/>
-                <circle cx="56" cy="35" r="3" fill="#228B22" opacity="0.4"/>
-                <circle cx="48" cy="25" r="2" fill="#228B22" opacity="0.4"/>
-                <circle cx="35" cy="32" r="3" fill="#fff" opacity="0.5"/>
-            </svg>
-            <svg class="shape shape-4 gelato-shape" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 180L20 80H80L50 180Z" fill="#DEB887"/>
-                <ellipse cx="50" cy="50" rx="32" ry="38" fill="#FFEFD5"/>
-                <ellipse cx="50" cy="38" rx="26" ry="30" fill="#FFF8DC"/>
-                <ellipse cx="50" cy="28" rx="20" ry="22" fill="#FFEFD5"/>
-                <circle cx="40" cy="45" r="5" fill="#8B4513" opacity="0.6"/>
-                <circle cx="55" cy="35" r="4" fill="#8B4513" opacity="0.6"/>
-                <circle cx="45" cy="25" r="3" fill="#8B4513" opacity="0.6"/>
-                <circle cx="60" cy="50" r="3" fill="#8B4513" opacity="0.6"/>
-            </svg>
-            <svg class="shape shape-5 gelato-shape" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 180L20 80H80L50 180Z" fill="#F4D03F"/>
-                <ellipse cx="50" cy="50" rx="32" ry="38" fill="#DDA0DD"/>
-                <ellipse cx="50" cy="38" rx="26" ry="30" fill="#DA70D6"/>
-                <ellipse cx="50" cy="28" rx="20" ry="22" fill="#DDA0DD"/>
-                <circle cx="38" cy="38" r="3" fill="#fff" opacity="0.6"/>
-                <circle cx="55" cy="30" r="2" fill="#fff" opacity="0.6"/>
-            </svg>
-        </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">Expert en matériel glacier depuis 2010</div>
-                <h1 class="hero-title">
-                    Vente & Location<br>
-                    <span>Machines à Glaces</span><br>
-                    Professionnelles
-                </h1>
-                <p class="hero-description">
-                    Ventes, locations saisonnières et financières, maintenance. 
-                    Nous accompagnons les professionnels du Grand Ouest et de toute la France.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary">
-                        Découvrir nos produits
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        Demander un devis
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <div class="hero-machines">
-                        <div class="machine-card">
-                            <div style="font-size: 4rem;">🍦</div>
-                            <span>Machines Glaces</span>
+        </style>
+    `;
+    
+    const navbarHTML = `
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🍦</div>
+                <span class="logo-text">O'Gelato</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-dropdown">
+                    <a href="machines-glaces.html" class="dropdown-trigger">Machines Glaces <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Verticales 3 Manettes</h4>
+                            <a href="produits/tutto-gelato-3.html" class="dropdown-item">Tutto Gelato 3</a>
+                            <a href="produits/tutto-gelato-3-plus.html" class="dropdown-item">Tutto Gelato 3+</a>
+                            <a href="produits/tutto-gelato-4.html" class="dropdown-item">Tutto Gelato 4</a>
                         </div>
-                        <div class="machine-card">
-                            <div style="font-size: 4rem;">🧊</div>
-                            <span>Granités</span>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Comptoir 3 Manettes</h4>
+                            <a href="produits/tutto-gelato-2.html" class="dropdown-item">Tutto Gelato 2</a>
+                            <a href="produits/tutto-gelato-2-plus.html" class="dropdown-item">Tutto Gelato 2+</a>
+                            <a href="produits/kion-2-comptoir.html" class="dropdown-item">KION 2 Comptoir</a>
                         </div>
-                        <div class="machine-card">
-                            <div style="font-size: 4rem;">🍨</div>
-                            <span>Vitrines</span>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Sundae / Yaourt</h4>
+                            <a href="produits/tutto-gelato-1.html" class="dropdown-item">Tutto Gelato 1</a>
+                            <a href="produits/tutto-gelato-1-plus.html" class="dropdown-item">Tutto Gelato 1+</a>
+                            <a href="produits/tutto-gelato-auto.html" class="dropdown-item">Tutto Gelato Auto</a>
                         </div>
-                        <div class="machine-card">
-                            <div style="font-size: 4rem;">🥞</div>
-                            <span>Crêpières</span>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Mix Glaces</h4>
+                            <a href="produits/mix-ogelato.html" class="dropdown-item">Mix OGELATO</a>
+                            <a href="produits/mix-sublimo.html" class="dropdown-item">Mix SUBLIMO</a>
+                            <a href="produits/mix-ogelato-premium.html" class="dropdown-item">Mix OGELATO PREMIUM</a>
                         </div>
-                        <div class="machine-card">
-                            <div style="font-size: 4rem;">🥪</div>
-                            <span>Panito</span>
                         </div>
-                        <div class="machine-card">
-                            <div style="font-size: 4rem;">🥤</div>
-                            <span>Distributeurs</span>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="machines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                            <a href="mix-glaces.html" class="dropdown-item dropdown-highlight">→ Tous nos mix</a>
+                            <a href="cornets-glaces.html" class="dropdown-item dropdown-highlight">→ Tous nos cornets</a>
                         </div>
                     </div>
-                    <div class="hero-floating-badge badge-promo">
-                        -3000€ Pack TG3 🎉
+                </li>
+                <li class="nav-dropdown">
+                    <a href="machines-granites.html" class="dropdown-trigger">Machines Granités <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Machines Granités</h4>
+                            <a href="produits/fc1.html" class="dropdown-item">FC1 (1 Bac)</a>
+                            <a href="produits/fc2.html" class="dropdown-item">FC2 (2 Bacs)</a>
+                            <a href="produits/fc3.html" class="dropdown-item">FC3 (3 Bacs)</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Consommables</h4>
+                            <a href="consommables-granites.html" class="dropdown-item">Sirops & Préparations</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="machines-granites.html" class="dropdown-item dropdown-highlight">→ Toutes les machines</a>
+                        </div>
                     </div>
-                    <div class="hero-floating-badge badge-quality">
-                        Garantie 2 ans
+                </li>
+                <li><a href="location-machines.html">Location Machines</a></li>
+                <li class="nav-dropdown">
+                    <a href="vitrines-glaces.html" class="dropdown-trigger">Vitrines <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Gamme Sublimo</h4>
+                            <a href="produits/vitrine-sublimo-7-bacs.html" class="dropdown-item">Sublimo 7 Bacs</a>
+                            <a href="produits/vitrine-sublimo-9-bacs.html" class="dropdown-item">Sublimo 9 Bacs</a>
+                            <a href="produits/vitrine-sublimo-12-bacs.html" class="dropdown-item">Sublimo 12 Bacs</a>
+                            <a href="produits/vitrine-sublimo-18-bacs.html" class="dropdown-item">Sublimo 18 Bacs</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Voir tout</h4>
+                            <a href="vitrines-glaces.html" class="dropdown-item dropdown-highlight">→ Toutes les vitrines</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </li>
+                <li><a href="machines-cuisson.html">Matériel Cuisson</a></li>
+                <li class="nav-dropdown">
+                    <a href="occasions-glaciers.html" class="dropdown-trigger nav-promo">Occasions / Promotions <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu glass-dropdown">
+                        <div class="dropdown-section">
+                            <h4 class="dropdown-title">Occasions</h4>
+                            <a href="occasions-glaciers.html" class="dropdown-item">Matériels Glaciers</a>
+                            <a href="machines-cuisson.html" class="dropdown-item">Matériel Cuisson</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+    `;
 
-    <!-- Clients Section -->
-    <section class="clients" id="clients">
-        <div class="section-header animate-on-scroll">
-            <span class="section-tag">Nos Clients</span>
-            <h2 class="section-title">Ils nous font confiance</h2>
-            <p class="section-subtitle">
-                Nous accompagnons tous les professionnels de la restauration et du loisir
-            </p>
-        </div>
-        <div class="clients-grid animate-on-scroll">
-            <span class="client-tag">🥖 Boulangeries</span>
-            <span class="client-tag">🥐 Pâtisseries</span>
-            <span class="client-tag">☕ Cafés</span>
-            <span class="client-tag">🍨 Glaciers</span>
-            <span class="client-tag">☕ Coffee Shop</span>
-            <span class="client-tag">🍽️ Restauration</span>
-            <span class="client-tag">🍔 Fast Food</span>
-            <span class="client-tag">🥞 Crêperies</span>
-            <span class="client-tag">🎢 Centres de loisirs</span>
-            <span class="client-tag">⛺ Campings</span>
-            <span class="client-tag">🎳 Bowlings</span>
-            <span class="client-tag">🏨 Hôtels</span>
-        </div>
-    </section>
+    function adjustLinks() {
+        const currentPath = window.location.pathname;
+        const isInProductsFolder = currentPath.includes('/produits/');
+        
+        if (isInProductsFolder) {
+            const header = document.getElementById('header');
+            if (header) {
+                header.innerHTML = header.innerHTML.replace(/href="index\.html/g, 'href="../index.html');
+                header.innerHTML = header.innerHTML.replace(/href="machines-glaces\.html"/g, 'href="../machines-glaces.html"');
+                header.innerHTML = header.innerHTML.replace(/href="machines-granites\.html"/g, 'href="../machines-granites.html"');
+                header.innerHTML = header.innerHTML.replace(/href="machines-cuisson\.html"/g, 'href="../machines-cuisson.html"');
+                header.innerHTML = header.innerHTML.replace(/href="occasions-glaciers\.html"/g, 'href="../occasions-glaciers.html"');
+                header.innerHTML = header.innerHTML.replace(/href="consommables-granites\.html"/g, 'href="../consommables-granites.html"');
+                header.innerHTML = header.innerHTML.replace(/href="produits\//g, 'href="');
+            }
+        }
+    }
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-header animate-on-scroll">
-            <span class="section-tag">Nos Services</span>
-            <h2 class="section-title">Un accompagnement complet</h2>
-            <p class="section-subtitle">
-                Artisan crêpier / Fabricant glacier - SAV agréé froid
-            </p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">🏪</div>
-                <h3>Matériel Pro</h3>
-                <ul class="service-list">
-                    <li>Fiabilité</li>
-                    <li>Qualité / Prix</li>
-                    <li>Garantie 2 ans</li>
-                    <li>Options</li>
-                    <li>Fonction Security</li>
-                </ul>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">🤝</div>
-                <h3>Services</h3>
-                <ul class="service-list">
-                    <li>Installations</li>
-                    <li>Formations</li>
-                    <li>Conseils matières</li>
-                    <li>Recettes</li>
-                </ul>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">🔧</div>
-                <h3>SAV</h3>
-                <ul class="service-list">
-                    <li>Full Services</li>
-                    <li>Contrat Maintenance</li>
-                    <li>Frigoriste Interne</li>
-                    <li>Stock Pièces</li>
-                    <li>Hivernage</li>
-                </ul>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">💶</div>
-                <h3>Financement</h3>
-                <ul class="service-list">
-                    <li>Financement</li>
-                    <li>Leasing</li>
-                    <li>Contrat Full Service</li>
-                    <li>Location Saison</li>
-                </ul>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">🎨</div>
-                <h3>Branding</h3>
-                <ul class="service-list">
-                    <li>Machine à votre logo</li>
-                    <li>Personnalisation</li>
-                    <li>Covering</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="section-header animate-on-scroll">
-            <span class="section-tag">Nos Produits</span>
-            <h2 class="section-title">Les bonnes affaires</h2>
-            <p class="section-subtitle">
-                Découvrez notre sélection de machines et équipements professionnels
-            </p>
-        </div>
-        <div class="products-grid">
-            <div class="product-card animate-on-scroll">
-                <span class="product-badge">Achat</span>
-                <div class="product-image">
-                    <div style="font-size: 8rem;">🍦</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Tutto Gelato 3</h3>
-                    <ul class="product-specs">
-                        <li>Tension / Puissance : 220V / 2400W</li>
-                        <li>3 manettes</li>
-                        <li>Gamme Premium</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price">Sur devis</span>
-                        <a href="#contact" class="btn btn-primary btn-small">Demander</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card animate-on-scroll">
-                <span class="product-badge">Achat</span>
-                <div class="product-image">
-                    <div style="font-size: 8rem;">🍨</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">BD30</h3>
-                    <ul class="product-specs">
-                        <li>Tension / Puissance : 220V / 2400W</li>
-                        <li>Machine comptoir</li>
-                        <li>Idéal débutant</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price">Sur devis</span>
-                        <a href="#contact" class="btn btn-primary btn-small">Demander</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card animate-on-scroll">
-                <span class="product-badge">Achat</span>
-                <div class="product-image">
-                    <div style="font-size: 8rem;">🧊</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Machine Granita FC1</h3>
-                    <ul class="product-specs">
-                        <li>Machine compacte ultra performante</li>
-                        <li>1 bac</li>
-                        <li>Fruits et/ou alcoolisés</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price">Sur devis</span>
-                        <a href="#contact" class="btn btn-primary btn-small">Demander</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card animate-on-scroll">
-                <span class="product-badge occasion">Occasion</span>
-                <div class="product-image">
-                    <div style="font-size: 8rem;">🥪</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Panito 11</h3>
-                    <ul class="product-specs">
-                        <li>Forte rentabilité</li>
-                        <li>Rapide prêt en 50 secondes</li>
-                        <li>Buns scellés</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price">550 € HT</span>
-                        <a href="#contact" class="btn btn-primary btn-small">Acheter</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card animate-on-scroll">
-                <span class="product-badge promo">Promo</span>
-                <div class="product-image">
-                    <div style="font-size: 8rem;">🥤</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Bubble Star 22L</h3>
-                    <ul class="product-specs">
-                        <li>Rapide et puissante</li>
-                        <li>Grande contenance 22L</li>
-                        <li>Distributeur boissons</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price">990 € HT</span>
-                        <a href="#contact" class="btn btn-primary btn-small">Acheter</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card animate-on-scroll">
-                <span class="product-badge occasion">Occasion</span>
-                <div class="product-image">
-                    <div style="font-size: 8rem;">🥞</div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Machine Kreptoo</h3>
-                    <ul class="product-specs">
-                        <li>Grande capacité</li>
-                        <li>2 crêpes en 20s!</li>
-                        <li>Professionnelle</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price">1 590 € HT</span>
-                        <a href="#contact" class="btn btn-primary btn-small">Acheter</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Offers Section -->
-    <section class="offers" id="offers">
-        <div class="section-header animate-on-scroll">
-            <span class="section-tag">🎉 Offres du mois</span>
-            <h2 class="section-title">Nos offres exceptionnelles</h2>
-            <p class="section-subtitle">
-                Profitez de nos packs et promotions exclusives
-            </p>
-        </div>
-        <div class="offers-grid">
-            <div class="offer-card animate-on-scroll">
-                <div class="offer-content">
-                    <span class="offer-tag">Pack Machine</span>
-                    <h3 class="offer-title">Pack TG3 Machines Glaces</h3>
-                    <p class="offer-description">
-                        Machine à Glaces TG3 + 1000 glaces offertes à 3€ (valeur 3000€)
-                        <br>Fraise / Vanille inclus !
-                    </p>
-                    <div class="offer-price">
-                        <span class="old">7990€</span>
-                        <span class="new">4990€ HT</span>
-                    </div>
-                    <a href="#contact" class="offer-btn">En profiter →</a>
-                </div>
-                <div class="offer-visual">
-                    <div style="font-size: 6rem;">🍦</div>
-                </div>
-            </div>
-            <div class="offer-card secondary animate-on-scroll">
-                <div class="offer-content">
-                    <span class="offer-tag">-15% de remise</span>
-                    <h3 class="offer-title">Pack Consommables</h3>
-                    <p class="offer-description">
-                        Pack O'Prime ou Pack Artezano
-                        <br>14 poches Vanille + 14 poches Fraise
-                        <br>3 cartons de cornets gaufrés
-                    </p>
-                    <div class="offer-price">
-                        <span class="new">Carte Membre</span>
-                    </div>
-                    <a href="#contact" class="offer-btn">Devenir membre →</a>
-                </div>
-                <div class="offer-visual">
-                    <div style="font-size: 6rem;">🍨</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Section Machines Glaces -->
-    <section class="category-showcase bg-chocolat" id="machines-glaces">
-        <div class="category-container">
-            <div class="category-header">
-                <span class="category-badge">La Gamme TUTTO GELATO</span>
-                <h2 class="category-title">NOS MACHINES GLACES</h2>
-                <p class="category-subtitle">Gelato, Soft, Fresco, Sundae et Frozen Yogourt - Qualité professionnelle au meilleur rapport qualité/prix</p>
-            </div>
+    function initDropdowns() {
+        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+        
+        dropdownTriggers.forEach(trigger => {
+            const parentLi = trigger.closest('.nav-dropdown');
+            if (!parentLi) return;
             
-            <div class="category-products">
-                <a href="produits/tutto-gelato-3.html" class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">TG3</span>
-                    <span class="spec">750 glaces/h</span>
-                </a>
-                <a href="produits/tutto-gelato-3-plus.html" class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">TG3+</span>
-                    <span class="spec">900 glaces/h</span>
-                </a>
-                <a href="produits/tutto-gelato-4.html" class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">TG4</span>
-                    <span class="spec">1200 glaces/h</span>
-                </a>
-                <a href="produits/tutto-gelato-2.html" class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">TG2</span>
-                    <span class="spec">Comptoir</span>
-                </a>
-                <a href="produits/tutto-gelato-1.html" class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">TG1</span>
-                    <span class="spec">Sundae</span>
-                </a>
-                <a href="produits/tutto-gelato-auto.html" class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">TG Auto</span>
-                    <span class="spec">Automatique</span>
-                </a>
-            </div>
-
-            <div class="category-features">
-                <div class="feature-item">
-                    <span class="icon">⚡</span>
-                    <div class="text"><strong>Haut Débit</strong><span>Jusqu'à 1200 glaces/heure</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">🎨</span>
-                    <div class="text"><strong>Branding</strong><span>Personnalisation à votre logo</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">🔧</span>
-                    <div class="text"><strong>SAV France</strong><span>Support technique réactif</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">💰</span>
-                    <div class="text"><strong>Financement</strong><span>Solutions adaptées disponibles</span></div>
-                </div>
-            </div>
-
-            <div class="category-buttons">
-                <a href="machines-glaces.html" class="btn-category primary">Voir toutes les machines →</a>
-                <a href="#contact" class="btn-category secondary">Demander un devis</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Machines Granités -->
-    <section class="category-showcase bg-fraise" id="machines-granites">
-        <div class="category-container">
-            <div class="category-header">
-                <span class="category-badge">La Gamme TUTTO GRANITO</span>
-                <h2 class="category-title">NOS MACHINES GRANITÉS</h2>
-                <p class="category-subtitle">Boissons glacées tendances pour Cafés, Hôtels, Restaurants et Campings</p>
-            </div>
+            const dropdownMenu = parentLi.querySelector('.dropdown-menu');
+            if (!dropdownMenu) return;
             
-            <div class="category-products">
-                <a href="produits/fc1.html" class="category-product-card">
-                    <span class="icon">🧊</span>
-                    <span class="name">FC1</span>
-                    <span class="spec">1 Bac</span>
-                </a>
-                <a href="produits/fc2.html" class="category-product-card">
-                    <span class="icon">🧊</span>
-                    <span class="name">FC2</span>
-                    <span class="spec">2 Bacs</span>
-                </a>
-                <a href="produits/fc3.html" class="category-product-card">
-                    <span class="icon">🧊</span>
-                    <span class="name">FC3</span>
-                    <span class="spec">3 Bacs</span>
-                </a>
-            </div>
-
-            <div class="category-features">
-                <div class="feature-item">
-                    <span class="icon">🍹</span>
-                    <div class="text"><strong>Polyvalent</strong><span>Granités fruits & cocktails</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">🎯</span>
-                    <div class="text"><strong>Compact</strong><span>Idéal pour tous les espaces</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">📈</span>
-                    <div class="text"><strong>Rentable</strong><span>ROI rapide garanti</span></div>
-                </div>
-            </div>
-
-            <div class="category-buttons">
-                <a href="machines-granites.html" class="btn-category primary">Découvrir la gamme →</a>
-                <a href="#contact" class="btn-category secondary">Demander un devis</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Location -->
-    <section class="category-showcase bg-cream" id="location">
-        <div class="category-container">
-            <div class="category-header">
-                <span class="category-badge">Flexibilité maximale</span>
-                <h2 class="category-title">LOCATION DE MACHINES</h2>
-                <p class="category-subtitle">Machines glaces, granités, vitrines et machines panito - Solutions adaptées à vos besoins</p>
-            </div>
+            // Desktop uniquement: hover
+            const handleMouseEnter = () => {
+                if (window.innerWidth > 768) {
+                    dropdownMenu.style.display = 'grid';
+                    setTimeout(() => dropdownMenu.classList.add('active'), 10);
+                }
+            };
             
-            <div class="category-products">
-                <div class="category-product-card">
-                    <span class="icon">📅</span>
-                    <span class="name">Longue Durée</span>
-                    <span class="spec">18 à 48 mois</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🎉</span>
-                    <span class="name">Événementielle</span>
-                    <span class="spec">1 jour à 1 semaine</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">☀️</span>
-                    <span class="name">Saisonnière</span>
-                    <span class="spec">2 à 6 mois</span>
-                </div>
-            </div>
-
-            <div class="category-features">
-                <div class="feature-item">
-                    <span class="icon">✓</span>
-                    <div class="text"><strong>Pas d'investissement</strong><span>Gardez votre trésorerie</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">✓</span>
-                    <div class="text"><strong>Pas d'entretien</strong><span>Nous gérons tout pour vous</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">✓</span>
-                    <div class="text"><strong>Testez votre marché</strong><span>Sans engagement long terme</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">✓</span>
-                    <div class="text"><strong>Formation incluse</strong><span>Livraison et conseils pros</span></div>
-                </div>
-            </div>
-
-            <p class="highlight-text">💡 Rentabilité maximale amortie en quelques semaines !</p>
-
-            <div class="category-buttons">
-                <a href="#contact" class="btn-category primary">Demander un devis location →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Vitrines -->
-    <section class="category-showcase bg-caramel" id="vitrines">
-        <div class="category-container">
-            <div class="category-header">
-                <span class="category-badge">Présentation premium</span>
-                <h2 class="category-title">NOS VITRINES GLACES</h2>
-                <p class="category-subtitle">La vitrine par excellence de votre établissement - Froid statique ou ventilé</p>
-            </div>
+            const handleMouseLeave = () => {
+                if (window.innerWidth > 768) {
+                    dropdownMenu.classList.remove('active');
+                    setTimeout(() => dropdownMenu.style.display = 'none', 300);
+                }
+            };
             
-            <div class="category-products">
-                <div class="category-product-card">
-                    <span class="icon">🍨</span>
-                    <span class="name">12 Bacs</span>
-                    <span class="spec">Compact</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🍨</span>
-                    <span class="name">18 Bacs</span>
-                    <span class="spec">Medium</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🍨</span>
-                    <span class="name">24 Bacs</span>
-                    <span class="spec">Large</span>
-                </div>
-            </div>
-
-            <div class="category-buttons">
-                <a href="vitrines-glaces.html" class="btn-category primary">Voir les vitrines →</a>
-                <a href="#contact" class="btn-category secondary">Demander un devis</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Cuisson -->
-    <section class="category-showcase bg-chocolat" id="cuisson">
-        <div class="category-container">
-            <div class="category-header">
-                <span class="category-badge">Diversifiez votre offre</span>
-                <h2 class="category-title">NOS MACHINES CUISSON</h2>
-                <p class="category-subtitle">Machine Panito - Créez des burgers gelato à fort impact visuel en quelques secondes</p>
-            </div>
+            parentLi.addEventListener('mouseenter', handleMouseEnter);
+            parentLi.addEventListener('mouseleave', handleMouseLeave);
             
-            <div class="category-products">
-                <div class="category-product-card">
-                    <span class="icon">🍔</span>
-                    <span class="name">Panito</span>
-                    <span class="spec">Burger Gelato</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🥞</span>
-                    <span class="name">Crêpière</span>
-                    <span class="spec">Pro</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🧇</span>
-                    <span class="name">Gaufrier</span>
-                    <span class="spec">Pro</span>
-                </div>
-            </div>
-
-            <div class="category-features">
-                <div class="feature-item">
-                    <span class="icon">⚡</span>
-                    <div class="text"><strong>Rapide</strong><span>Résultat immédiat</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">🎨</span>
-                    <div class="text"><strong>Pittoresque</strong><span>Fort impact visuel</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">❄️</span>
-                    <div class="text"><strong>Polyvalent</strong><span>Été comme hiver</span></div>
-                </div>
-            </div>
-
-            <div class="category-buttons">
-                <a href="machines-cuisson.html" class="btn-category primary">En savoir plus →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Emballages -->
-    <section class="category-showcase bg-menthe" id="emballages">
-        <div class="category-container">
-            <div class="category-header">
-                <span class="category-badge">Finition parfaite</span>
-                <h2 class="category-title">NOS EMBALLAGES</h2>
-                <p class="category-subtitle">Valorisez vos créations avec nos emballages soignés et personnalisables</p>
-            </div>
-            
-            <div class="category-products">
-                <div class="category-product-card">
-                    <span class="icon">🍦</span>
-                    <span class="name">Cornets</span>
-                    <span class="spec">Gaufrés premium</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🥤</span>
-                    <span class="name">Pots & Cups</span>
-                    <span class="spec">Design personnalisé</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">🥄</span>
-                    <span class="name">Cuillères</span>
-                    <span class="spec">Bois & plastique</span>
-                </div>
-                <div class="category-product-card">
-                    <span class="icon">📦</span>
-                    <span class="name">Barquettes</span>
-                    <span class="spec">Toutes tailles</span>
-                </div>
-            </div>
-
-            <div class="category-features">
-                <div class="feature-item">
-                    <span class="icon">🎨</span>
-                    <div class="text"><strong>Personnalisable</strong><span>À votre image</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">✨</span>
-                    <div class="text"><strong>Qualité pro</strong><span>Matériaux robustes</span></div>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">🌱</span>
-                    <div class="text"><strong>Éco-responsable</strong><span>Options disponibles</span></div>
-                </div>
-            </div>
-
-            <div class="category-buttons">
-                <a href="cornets-glaces.html" class="btn-category primary" style="background: var(--chocolat); color: white;">Commander →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="about-container">
-            <div class="about-image">
-                <div class="about-image-placeholder">🍫🍨</div>
-            </div>
-            <div class="about-content">
-                <h2 class="about-title">O'GELATO</h2>
-                <p class="about-tagline">La qualité depuis toujours</p>
-                <p class="about-text">
-                    Nos 30 ans d'expériences dans le domaine du C.H.R nous ont permis de sélectionner les <strong>meilleurs fabricants de Matériels Professionnels & Matières Premières en France</strong> (en priorité) en Europe et en Asie.
-                </p>
-                <p class="about-links">
-                    <strong>Découvrez nos Matériels Professionnels :</strong> Machines à Glaces Italiennes, Machines Granités, Vitrines Glaces/Pâtisseries, Turbines Glaces, Pasteurisateurs, Machines Chantilly, Machines Churros, Crêpières et Gaufriers.
-                </p>
-                <a href="#products" class="btn btn-dark">NOUS DÉCOUVRIR</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-content">
-            <div class="contact-info animate-on-scroll">
-                <h2>Parlons de votre projet !</h2>
-                <p>
-                    Notre équipe est à votre disposition pour vous conseiller 
-                    et vous accompagner dans votre projet. Contactez-nous pour 
-                    un devis personnalisé.
-                </p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📞</div>
-                        <div>
-                            <strong>09 54 93 49 90</strong><br>
-                            <span style="opacity: 0.7;">Ligne fixe</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📱</div>
-                        <div>
-                            <strong>06 98 72 20 40</strong><br>
-                            <span style="opacity: 0.7;">Mobile</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📍</div>
-                        <div>
-                            <strong>Grand Ouest & France</strong><br>
-                            <span style="opacity: 0.7;">Avec nos distributeurs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form animate-on-scroll">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Votre nom</label>
-                        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="jean@exemple.fr">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Téléphone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="06 00 00 00 00">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">Vous êtes intéressé par</label>
-                        <select id="interest" name="interest">
-                            <option value="">Sélectionnez...</option>
-                            <option value="glaces">Machines à Glaces</option>
-                            <option value="granites">Machines Granités</option>
-                            <option value="vitrines">Vitrines</option>
-                            <option value="location">Location</option>
-                            <option value="occasion">Occasions</option>
-                            <option value="autre">Autre</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Votre message</label>
-                        <textarea id="message" name="message" placeholder="Décrivez votre projet..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        Envoyer ma demande
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+            // Mobile: click uniquement
+            trigger.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle le parent
+                    const wasActive = parentLi.classList.contains('active');
+                    
+                    // Fermer tous les autres dropdowns
+                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                        const menu = dropdown.querySelector('.dropdown-menu');
+                        if (menu) {
+                            menu.classList.remove('active');
+                            menu.style.display = 'none';
+                        }
+                    });
+                    
+                    // Toggle le dropdown actuel
+                    if (!wasActive) {
+                        parentLi.classList.add('active');
+                        dropdownMenu.style.display = 'grid';
+                        setTimeout(() => dropdownMenu.classList.add('active'), 10);
+                    }
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
         });
+    }
 
-        // Stagger animations for grid items
-        document.querySelectorAll('.services-grid .service-card, .products-grid .product-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.1}s`;
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Merci pour votre demande ! Nous vous recontacterons très rapidement.');
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+    function initMobileMenu() {
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                
+                // Fermer tous les dropdowns quand on ouvre/ferme le menu
+                if (navLinks.classList.contains('active')) {
+                    // Menu qui s'ouvre : fermer tous les dropdowns
+                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                        const menu = dropdown.querySelector('.dropdown-menu');
+                        if (menu) {
+                            menu.classList.remove('active');
+                            menu.style.display = 'none';
+                        }
                     });
                 }
             });
-        });
-    </script>
+        }
+    }
 
-    <!-- Navbar & Footer Scripts -->
-    <script src="navbar-inline.js"></script>
-    <script src="footer-inline.js"></script>
-</body>
-</html>
+    function initScrollEffect() {
+        const header = document.getElementById('header');
+        
+        if (!header) {
+            console.warn('Header not found for scroll effect');
+            return;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    function init() {
+        console.log('Initializing navbar...');
+        
+        // Injecter le CSS
+        if (!document.getElementById('navbar-inline-css')) {
+            document.head.insertAdjacentHTML('beforeend', navbarCSS);
+        }
+        
+        // Insérer la navbar
+        if (!document.getElementById('header')) {
+            document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+        }
+        
+        // Attendre que le DOM soit prêt
+        requestAnimationFrame(() => {
+            adjustLinks();
+            initDropdowns();
+            initMobileMenu();
+            initScrollEffect();
+            console.log('Navbar initialized successfully');
+        });
+    }
+
+    // Initialiser quand le DOM est prêt
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
