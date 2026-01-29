@@ -181,7 +181,7 @@
                 <ul>
                     <li><a href="location-machines.html">Location Machines</a></li>
                     <li><a href="#financement">Financement</a></li>
-                    <li><a href="#formation">Formation</a></li>
+                    <li><a href="cgv-livraison.html">Livraison & CGV</a></li>
                     <li><a href="sav-maintenance.html">SAV & Maintenance</a></li>
                     <li><a href="ligne-verte-ecologique.html">Ligne Verte Écologique</a></li>
                     <li><a href="#occasions">Occasions</a></li>
@@ -239,7 +239,7 @@
                 <ul>
                     <li><a href="location-machines.html">Location Machines</a></li>
                     <li><a href="index.html#financement">Financement</a></li>
-                    <li><a href="index.html#formation">Formation</a></li>
+                    <li><a href="cgv-livraison.html">Livraison & CGV</a></li>
                     <li><a href="sav-maintenance.html">SAV & Maintenance</a></li>
                     <li><a href="ligne-verte-ecologique.html">Ligne Verte Écologique</a></li>
                     <li><a href="occasions-glaciers.html">Occasions</a></li>
